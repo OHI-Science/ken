@@ -9,6 +9,8 @@ output:
 knitr::opts_chunk$set(warning = FALSE, message=FALSE)
 ```
 
+**NOTE!!!!! This is in progress, in development from a workshop in Samoa. The data displayed is from Kenya but the text is still Samoa.**
+
 ```{r setup for country focus, echo=FALSE}
 ## country focus: edit this for your country.
 ## make sure the rgn_name matches exactly: https://github.com/OHI-Science/ohirepos-log/blob/master/rgn_global.csv
@@ -45,6 +47,7 @@ scores_gf_csv <- read_csv(file.path(rawkey_prefix, "global2015/gapFilling/scores
 fis_meancatch_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/fis_meancatch.csv"))
 fis_b_bmsy_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/fis_b_bmsy.csv"))
 fis_b_bmsy_gf_csv <- read_csv(file.path(rawkey_prefix, "global2017/gapfilling/layers/fis_b_bmsy.csv"))
+stock_catch <- read_csv("stock_catch_by_rgn_kenya.csv")
 mar_harvest_tonnes_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/mar_harvest_tonnes.csv"))
 taxon_lookup_csv <- read_csv(file.path(rawprep_prefix, "globalprep/fis/v2017/data/taxon_resilience_lookup.csv"))
 
@@ -56,7 +59,7 @@ np_harvest_tonnes_csv <- read_csv(file.path(rawkey_prefix, "global2017/gapfillin
 ico_spp_cat_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_spp_cat.csv")) ## maybe don't need
 ico_spp_rgn_prepped_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_spp_rgn_prepped.csv")) ## maybe don't need
 risk_code_lookup <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/raw/risk_code_lookup.csv"))
-rgn_spp_gl_csv <- read_csv("~/github/ohi-global2017-template/mazu_local/rgn_spp_gl.csv") # this filepath will depend on where you saved this locally
+rgn_spp_gl_csv <- read_csv("rgn_spp_gl_kenya.csv")
 ico_spp_iucn_status_csv <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/output/ico_spp_iucn_status.csv"))
 ico_global_list <- read_csv(file.path(rawprep_prefix, "globalprep/spp_ico/v2017/int/ico_global_list.csv"))
 
@@ -161,9 +164,7 @@ Let's brainstorm together: let's list overall observations and observations by g
 
 <br> 
 
-<!--- photo interlude --->
 
-![](images/ci_78365275_Medium.jpg)
 
 <br> 
 
@@ -286,11 +287,9 @@ Global data are from the [Sea Around Us Project](http://www.seaaroundus.org). Ma
 
 We can look at these data in several ways. Let's start by looking on SAUP's website at an interactive visualization of [fish caught in Samoa's EEZ](http://www.seaaroundus.org/data/#/eez/882?chart=catch-chart&dimension=taxon&measure=tonnage&limit=20):
 
-![](images/saup-samoa-eezfishing.png)
 
 We can also look at an interactive visualization of [Samoa fishing around the world](http://www.seaaroundus.org/data/#/spatial-catch?entities=192) (mostly high seas and agreements with other countries). So although Samoa fishes further than its own EEZ, we don't include a lot of that catch. 
 
-![](images/saup-samoa-worldfishing.png)
 
 <br>
 
@@ -312,9 +311,8 @@ https://github.com/OHI-Science/ohiprep_v2018/blob/master/globalprep/fis/v2017/ca
 --->
 
 
-<!---
-
 ```{r fis_meancatch list, echo=FALSE}
+
 fis_meancatch <- fis_meancatch_csv %>%
   filter(rgn_id == rgn_global$rgn_id) %>%
   mutate(stock_name = str_remove_all(stock_id_taxonkey, "-[0-9]+_[0-9]+"))
@@ -333,7 +331,8 @@ fis_meancatch_lookup %>%
   DT::datatable()
 
 ## save as csv: 
-fis_meancatch_lookup %>% write_csv("data/fis_meancatch_lookup_sam.csv")
+fis_meancatch_lookup %>% write_csv("fis_meancatch_lookup_kenya.csv")
+
 ```
 
 There are `r fis_meancatch_lookup %>% nrow()` species in the [fis_meancatch](https://github.com/OHI-Science/sam/blob/master/eez/layers/fis_meancatch.csv) layer for Samoa.
@@ -347,19 +346,17 @@ To understand mean catch, dive into catch by species.
 
 Let's do two things. First, look through the list of species to see if any of them should be removed.
 
-<!--- downloaded from Mazu git-annex/globalprep/fis/v2017/int/stock_catch_by_rgn.csv, filtered for sam and saved locally in sam/data --->
 
 ```{r stock_catch_by_rgn.csv, echo=FALSE}
-stock_sam <- readr::read_csv("data/stock_catch_by_rgn_sam.csv")
-# View(stock_sam)
+# View(stock_catch)
 
 ## run this and then copy to presentation, I pasted it into TextWrangler first https://docs.google.com/presentation/d/1myCjWaUp6kXGMJbBOE3kOoZO_-miicKluN_2hlzcFVo/edit#slide=id.g39ed252120_0_195
-# stock_sam %>% 
+# stock_catch %>% 
 #   distinct(taxon_scientific_name, taxon_common_name) %>%
 #   as.data.frame()
 ```
 
-There are `r n_distinct(stock_sam$taxon_scientific_name)` unique species. 
+There are `r n_distinct(stock_catch$taxon_scientific_name)` unique species. 
 
 Let's look at them in the [presentation](https://docs.google.com/presentation/d/1myCjWaUp6kXGMJbBOE3kOoZO_-miicKluN_2hlzcFVo/edit#slide=id.g39ed252120_0_195) since there are so many.
 
@@ -368,7 +365,7 @@ Let's look at them in the [presentation](https://docs.google.com/presentation/d/
 Do we want to look at the timeseries for any species? For example:
 
 ```{r stock_catch_by_rgn.csv2, echo=FALSE}
-stock_sam %>%
+stock_catch %>%
   filter(taxon_scientific_name == "Acanthuridae") %>% ## we looked at Katsuwonus pelamis, Etelis, Acanthuridae
   select(year, taxon_scientific_name, taxon_common_name, tons, stock_id) %>%
   DT::datatable()
@@ -398,7 +395,7 @@ fis_b_bmsy_lookup %>%
   DT::datatable()
 
 ## save as csv:
-fis_b_bmsy_lookup %>% write_csv("data/fis_b_bmsy_lookup_sam.csv")
+fis_b_bmsy_lookup %>% write_csv("fis_b_bmsy_lookup_kenya.csv")
 ```
 
 Let's also look at these in the [presentation](https://docs.google.com/presentation/d/1myCjWaUp6kXGMJbBOE3kOoZO_-miicKluN_2hlzcFVo/edit#slide=id.g39ed252120_0_195).
@@ -539,19 +536,6 @@ lsp_combo %>%
 
 There is a lag in the WDPA database, as discussed [in this article](https://www.protectedplanet.net/c/the-lag-effect-in-the-world-database-on-protected-areas). Therefore, Samoa may not have been included in previous datasets. 
 
-Let's have a look at the data available now (I downloaded it as a CSV):
-
-![](images/protectedplanet_sam.png)
-
-```{r wdpa_sam, echo=FALSE}
-wdpa <- read_csv("data/WDPA_May2018_search_ef5e1f4c6bafed1fc0d6e2e299c0d3db917c43a449f66e54b4989338cdaa1086-csv/WDPA_May2018_search_ef5e1f4c6bafed1fc0d6e2e299c0d3db917c43a449f66e54b4989338cdaa1086-csv.csv")
-
-wdpa %>%
-  DT::datatable()
-```
-
-
-![](data/WDPA_May2018_search_ef5e1f4c6bafed1fc0d6e2e299c0d3db917c43a449f66e54b4989338cdaa1086-csv/Resources_in_English/wdpa_Summary_table_WDPA_attributes.png)
 
 #### Discussion
 
@@ -722,7 +706,7 @@ rgn_spp_gl <- rgn_spp_gl_csv %>%
   left_join(ico_global_list %>%
               select(sciname, comname), 
             by = "sciname") %>%
-  select(sciname, comname, iucn_sid, cat_score) # n_spp_rgn; this = n_rows: 1467 for samoa
+  select(sciname, comname, iucn_sid, cat_code) # n_spp_rgn; this = n_rows: 1467 for samoa
 
 rgn_spp_gl_distinct <- rgn_spp_gl %>%
   select(comname, sciname) %>% distinct() %>% data.frame()
