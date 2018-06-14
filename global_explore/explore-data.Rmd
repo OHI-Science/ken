@@ -86,7 +86,7 @@ lsp_prot_area_offshore3nm_csv <- read_csv(file.path(rawkey_prefix, "eez/layers/l
 
 ## Objectives
 
-Following the [OHI Global Goal Models, Data, and Gaps presentation](https://docs.google.com/presentation/d/1myCjWaUp6kXGMJbBOE3kOoZO_-miicKluN_2hlzcFVo/edit#slide=id.g37b2a5357d_0_288), let's explore the OHI Global data for Kenya.
+To explore the OHI Global data for Kenya, focusing on where data are estimated (gapfilled) instead of available in global data sets for Kenya.
 
 ----
 
