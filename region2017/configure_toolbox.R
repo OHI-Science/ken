@@ -19,13 +19,13 @@ packages_installed <- sapply(packages_required, FUN = function(x) library(x, cha
 
 
 ## load scenario configuration
-conf = ohicore::Conf('conf')
+conf <- ohicore::Conf('conf')
 
 ## check that scenario layers files in the \layers folder match layers.csv registration. Layers files are not modified.
 ohicore::CheckLayers('layers.csv', 'layers', flds_id=conf$config$layers_id_fields)
 
 ## load scenario layers for ohicore to access. Layers files are not modified.
-layers = ohicore::Layers('layers.csv', 'layers')
+layers <- ohicore::Layers('layers.csv', 'layers')
 
 ## select corresponding data year to use for pressures and resilience
 scenario_years <- 2017
