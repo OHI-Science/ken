@@ -1,0 +1,8 @@
+region_id,region_name,flower_png
+0,Toolbox Demo,reports/figures/flower_ToolboxDemo.png
+6,EEZ,reports/figures/flower_EEZ.png
+5,Lamu,reports/figures/flower_Lamu.png
+4,Tana River,reports/figures/flower_TanaRiver.png
+3,Kilifi,reports/figures/flower_Kilifi.png
+1,Mombasa,reports/figures/flower_Mombasa.png
+2,Kwale,reports/figures/flower_Kwale.png
