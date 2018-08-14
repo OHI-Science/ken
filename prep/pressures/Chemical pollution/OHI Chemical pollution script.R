@@ -45,56 +45,56 @@ plot(rgn_moll, main = "KENOHI regions \n Mollweide projection")
 f <- list.files('./prep/pressures/Chemical pollution/global tif/',pattern=".tif")     #lists all files in target folder with .tif in file name
 
 for (i in 1:length(f)){
-
-myraster <- raster(paste('./prep/pressures/Chemical pollution/global tif/',f[i],sep=""))
-
-# plot(myraster,main="Define your title",axes=F, legend.args=list(text='define your legend', side=4, font=2, line=2.5, cex=0.8))
-# plot(rgn_moll,add=T)
-
-########################################################################################
-#Crop global data to your region
-
-myraster_crop <- crop(myraster,rgn_moll)
-
-# plot(myraster_crop,axes=F,
-#      legend.args=list(text='Define your text', side=4, font=2, line=2.5, cex=0.8))
-# plot(rgn_moll,add=T)
-##################################################################################################
-#Get regional data
-#There are various ways of getting the data you might for each of your subregions.
-#Here we provide two ways of getting the average number of anomalous weeks per subregion
-#using raster::extract() and raster::zonal().extract()
-
-# get all values within each region
-vals = extract(myraster_crop,rgn_moll,method='simple')%>%
-  setNames(rgn_moll@data$rgn_name)
-
-# plot distribution of data per region
-
-df <- data.frame(unlist(vals))%>%
-  rename(value = unlist.vals.)%>%
-  mutate(rgn_name = gsub("\\d+", "",row.names(.))) #the gsub here removes all numbers from the rgn_name
-
-#now we have each value assigned to rgn_name.
-head(df)
-
-
-#Add new col to data frame
-
-df['year']<-gsub(".*[_]([^.]+)[.].*", "\\1", f[i])    #keep only the year from the file name
-
-
-#########export csv
-dir.create(file.path('./prep/pressures/Chemical pollution/', 'data layers'), showWarnings = FALSE) #creates new sub folder
-
-write.csv(df, file = paste('./prep/pressures/Chemical pollution/Extracted_regional_value _csv//',gsub("\\..*","",f[i]),'.csv',sep=""))   #removes the .tif from file name and replaces with .csv
-
-if (i==1){
-  regional_values<-df
-}else{
-regional_values<-rbind(regional_values,df)
-}
-
+  
+  myraster <- raster(paste('./prep/pressures/Chemical pollution/global tif/',f[i],sep=""))
+  
+  # plot(myraster,main="Define your title",axes=F, legend.args=list(text='define your legend', side=4, font=2, line=2.5, cex=0.8))
+  # plot(rgn_moll,add=T)
+  
+  ########################################################################################
+  #Crop global data to your region
+  
+  myraster_crop <- crop(myraster,rgn_moll)
+  
+  # plot(myraster_crop,axes=F,
+  #      legend.args=list(text='Define your text', side=4, font=2, line=2.5, cex=0.8))
+  # plot(rgn_moll,add=T)
+  ##################################################################################################
+  #Get regional data
+  #There are various ways of getting the data you might for each of your subregions.
+  #Here we provide two ways of getting the average number of anomalous weeks per subregion
+  #using raster::extract() and raster::zonal().extract()
+  
+  # get all values within each region
+  vals = extract(myraster_crop,rgn_moll,method='simple')%>%
+    setNames(rgn_moll@data$rgn_name)
+  
+  # plot distribution of data per region
+  
+  df <- data.frame(unlist(vals))%>%
+    rename(value = unlist.vals.)%>%
+    mutate(rgn_name = gsub("\\d+", "",row.names(.))) #the gsub here removes all numbers from the rgn_name
+  
+  #now we have each value assigned to rgn_name.
+  head(df)
+  
+  
+  #Add new col to data frame
+  
+  df['year']<-gsub(".*[_]([^.]+)[.].*", "\\1", f[i])    #keep only the year from the file name
+  
+  
+  #########export csv
+  dir.create(file.path('./prep/pressures/Chemical pollution/', 'data layers'), showWarnings = FALSE) #creates new sub folder
+  
+  write.csv(df, file = paste('./prep/pressures/Chemical pollution/Extracted_regional_value _csv//',gsub("\\..*","",f[i]),'.csv',sep=""))   #removes the .tif from file name and replaces with .csv
+  
+  if (i==1){
+    regional_values<-df
+  }else{
+    regional_values<-rbind(regional_values,df)
+  }
+  
 }
 
 write.csv(regional_values,"./prep/pressures/Chemical pollution/Extracted_regional_value _csv/Kenya_all_values_per_region_all_years.csv",row.names = F)
@@ -105,7 +105,7 @@ library(plyr)
 
 #first step - yearly average per region
 yearly_scores<-ddply(regional_values,c("rgn_name","year"),summarise,
-                       year_ave=mean(value,na.rm=T))
+                     year_ave=mean(value,na.rm=T))
 
 #second step - overall average across years per region
 
