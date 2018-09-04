@@ -1,0 +1,181 @@
+County,Year,Illegal Gears,No.,All gears count,Proportion of Total
+Kilifi,2004,Beach Seine,50,9174,0.005
+Kilifi,2004,Monofilament ,388,9174,0.042
+Kilifi,2004,Spearguns,241,9174,0.026
+Kilifi,2004,Reef seine,122,9174,0.013
+Kilifi,2004,Harpoons,0,9174,0
+TOTAL,,,801,,
+Kwale,2004,Beach Seine,80,9867,0.008
+Kwale,2004,Monofilament ,52,9867,0.005
+Kwale,2004,Spearguns,203,9867,0.021
+Kwale,2004,Reef seine,34,9867,0.003
+Kwale,2004,Harpoons,0,9867,0.000
+TOTAL,,,369,,
+Lamu,2004,Beach Seine,102,5440,0.019
+Lamu,2004,Monofilament ,358,5440,0.066
+Lamu,2004,Spearguns,0,5440,0.000
+Lamu,2004,Reef seine,0,5440,0.000
+Lamu,2004,Harpoons,0,5440,0.000
+TOTAL,,,460,,
+Mombasa,2004,Beach Seine,60,8051,0.007
+Mombasa,2004,Monofilament ,94,8051,0.012
+Mombasa,2004,Spearguns,1,8051,0.000
+Mombasa,2004,Reef seine,2,8051,0.000
+Mombasa,2004,Harpoons,0,8051,0.000
+TOTAL,,,157,,
+Tana River,2004,Beach Seine,2,7148,0.000
+Tana River,2004,Monofilament ,10,7148,0.001
+Tana River,2004,Spearguns,4,7148,0.001
+Tana River,2004,Reef seine,0,7148,0.000
+Tana River,2004,Harpoons,0,7148,0.000
+TOTAL,,,16,,
+Kilifi,2006,Beach Seine,54,9630,0.006
+Kilifi,2006,Monofilament ,382,9630,0.040
+Kilifi,2006,Spearguns,161,9630,0.017
+Kilifi,2006,Reef seine,78,9630,0.008
+Kilifi,2006,Harpoons,0,9630,0.000
+TOTAL,,,675,,
+Kwale,2006,Beach Seine,76,10749,0.007
+Kwale,2006,Monofilament ,304,10749,0.028
+Kwale,2006,Spearguns,438,10749,0.041
+Kwale,2006,Reef seine,56,10749,0.005
+Kwale,2006,Harpoons,0,10749,0.000
+TOTAL,,,874,,
+Lamu,2006,Beach Seine,370,4050,0.091
+Lamu,2006,Monofilament ,196,4050,0.048
+Lamu,2006,Spearguns,0,4050,0.000
+Lamu,2006,Reef seine,12,4050,0.003
+Lamu,2006,Harpoons,0,4050,0.000
+TOTAL,,,578,,
+Mombasa,2006,Beach Seine,58,7623,0.008
+Mombasa,2006,Monofilament ,68,7623,0.009
+Mombasa,2006,Spearguns,25,7623,0.003
+Mombasa,2006,Reef seine,0,7623,0.000
+Mombasa,2006,Harpoons,0,7623,0.000
+TOTAL,,,151,,
+Tana River,2006,Beach Seine,2,742,0.003
+Tana River,2006,Monofilament ,100,742,0.135
+Tana River,2006,Spearguns,0,742,0.000
+Tana River,2006,Reef seine,0,742,0.000
+Tana River,2006,Harpoons,0,742,0.000
+TOTAL,,,102,,
+Kilifi,2008,Beach Seine,6,9443,0.001
+Kilifi,2008,Monofilament ,410,9443,0.043
+Kilifi,2008,Spearguns,359,9443,0.038
+Kilifi,2008,Reef seine,105,9443,0.011
+Kilifi,2008,Harpoons,0,9443,0.000
+TOTAL,,,880,,
+Kwale,2008,Beach Seine,74,5845,0.013
+Kwale,2008,Monofilament ,27,5845,0.005
+Kwale,2008,Spearguns,525,5845,0.090
+Kwale,2008,Reef seine,41,5845,0.007
+Kwale,2008,Harpoons,0,5845,0.000
+TOTAL,,,667,,
+Lamu,2008,Beach Seine,97,3399,0.029
+Lamu,2008,Monofilament ,568,3399,0.167
+Lamu,2008,Spearguns,63,3399,0.019
+Lamu,2008,Reef seine,0,3399,0.000
+Lamu,2008,Harpoons,0,3399,0.000
+TOTAL,,,728,,
+Mombasa,2008,Beach Seine,40,4146,0.010
+Mombasa,2008,Monofilament ,432,4146,0.104
+Mombasa,2008,Spearguns,20,4146,0.005
+Mombasa,2008,Reef seine,0,4146,0.000
+Mombasa,2008,Harpoons,0,4146,0.000
+TOTAL,,,492,,
+Tana River,2008,Beach Seine,3,2767,0.001
+Tana River,2008,Monofilament ,35,2767,0.013
+Tana River,2008,Spearguns,40,2767,0.014
+Tana River,2008,Reef seine,0,2767,0.000
+Tana River,2008,Harpoons,0,2767,0.000
+TOTAL,,,78,,
+Kilifi,2012,Beach Seine,5,9544,0.001
+Kilifi,2012,Monofilament ,1496,9544,0.157
+Kilifi,2012,Spearguns,408,9544,0.043
+Kilifi,2012,Reef seine,5,9544,0.001
+Kilifi,2012,Harpoons,0,9544,0.000
+TOTAL,,,1914,,
+Kwale,2012,Beach Seine,70,8180,0.009
+Kwale,2012,Monofilament ,255,8180,0.031
+Kwale,2012,Spearguns,612,8180,0.075
+Kwale,2012,Reef seine,34,8180,0.004
+Kwale,2012,Harpoons,511,8180,0.062
+TOTAL,,,1482,,
+Lamu,2012,Beach Seine,96,8506,0.011
+Lamu,2012,Monofilament ,881,8506,0.104
+Lamu,2012,Spearguns,0,8506,0.000
+Lamu,2012,Reef seine,0,8506,0.000
+Lamu,2012,Harpoons,549,8506,0.065
+TOTAL,,,1526,,
+Mombasa,2012,Beach Seine,40,4163,0.010
+Mombasa,2012,Monofilament ,409,4163,0.098
+Mombasa,2012,Spearguns,19,4163,0.005
+Mombasa,2012,Reef seine,24,4163,0.006
+Mombasa,2012,Harpoons,48,4163,0.012
+TOTAL,,,540,,
+Tana River,2012,Beach Seine,0,1164,0.000
+Tana River,2012,Monofilament ,198,1164,0.170
+Tana River,2012,Spearguns,0,1164,0.000
+Tana River,2012,Reef seine,0,1164,0.000
+Tana River,2012,Harpoons,28,1164,0.024
+TOTAL,,,226,,
+Kilifi,2014,Beach Seine,5,11704,0.000
+Kilifi,2014,Monofilament ,1636,11704,0.140
+Kilifi,2014,Spearguns,465,11704,0.040
+Kilifi,2014,Reef seine,37,11704,0.003
+Kilifi,2014,Harpoons,12,11704,0.001
+TOTAL,,,2155,,
+Kwale,2014,Beach Seine,43,6819,0.006
+Kwale,2014,Monofilament ,122,6819,0.018
+Kwale,2014,Spearguns,420,6819,0.062
+Kwale,2014,Reef seine,39,6819,0.006
+Kwale,2014,Harpoons,0,6819,0.000
+TOTAL,,,624,,
+Lamu,2014,Beach Seine,111,6394,0.017
+Lamu,2014,Monofilament ,746,6394,0.117
+Lamu,2014,Spearguns,0,6394,0.000
+Lamu,2014,Reef seine,2,6394,0.000
+Lamu,2014,Harpoons,69,6394,0.011
+TOTAL,,,928,,
+Mombasa,2014,Beach Seine,13,4414,0.003
+Mombasa,2014,Monofilament ,119,4414,0.027
+Mombasa,2014,Spearguns,77,4414,0.017
+Mombasa,2014,Reef seine,11,4414,0.002
+Mombasa,2014,Harpoons,11,4414,0.002
+TOTAL,,,231,,
+Tana River,2014,Beach Seine,0,1254,0.000
+Tana River,2014,Monofilament ,69,1254,0.055
+Tana River,2014,Spearguns,0,1254,0.000
+Tana River,2014,Reef seine,0,1254,0.000
+Tana River,2014,Harpoons,0,1254,0.000
+TOTAL,,,69,,
+Kilifi,2016,Beach Seine,11,8984,0.001
+Kilifi,2016,Monofilament ,1212,8984,0.135
+Kilifi,2016,Spearguns,436,8984,0.049
+Kilifi,2016,Reef seine,13,8984,0.001
+Kilifi,2016,Harpoons,8,8984,0.001
+TOTAL,,,1680,,
+Kwale,2016,Beach Seine,38,6333,0.006
+Kwale,2016,Monofilament ,104,6333,0.016
+Kwale,2016,Spearguns,363,6333,0.057
+Kwale,2016,Reef seine,56,6333,0.009
+Kwale,2016,Harpoons,6,6333,0.001
+TOTAL,,,567,,
+Lamu,2016,Beach Seine,64,9660,0.007
+Lamu,2016,Monofilament ,1134,9660,0.117
+Lamu,2016,Spearguns,0,9660,0.000
+Lamu,2016,Reef seine,72,9660,0.007
+Lamu,2016,Harpoons,0,9660,0.000
+TOTAL,,,1270,,
+Mombasa,2016,Beach Seine,18,7319,0.002
+Mombasa,2016,Monofilament ,131,7319,0.018
+Mombasa,2016,Spearguns,10,7319,0.001
+Mombasa,2016,Reef seine,16,7319,0.002
+Mombasa,2016,Harpoons,1,7319,0.000
+TOTAL,,,176,,
+Tana River,2016,Beach Seine,0,1300,0.000
+Tana River,2016,Monofilament ,212,1300,0.163
+Tana River,2016,Spearguns,0,1300,0.000
+Tana River,2016,Reef seine,0,1300,0.000
+Tana River,2016,Harpoons,0,1300,0.000
+TOTAL,,,212,,
