@@ -31,7 +31,7 @@ ken$Sector[which(ken$Site=='Lamu')]<-'Lamu'
 
 #next step - look at temporal range of data per county (sector)
 library(plyr)
-tmp<-ddply(ken,c("Sector"),summarise,
+tmp<-ddply(ken,c("Sector","Period"),summarise,
            start_yr=min(Year),
            latest_yr=max(Year),
            n_years=length(unique(Year)),
@@ -63,13 +63,14 @@ station_sum<-ddply(ken,c("Country","Year","Sector","Site","Station","Period","be
 unique(station_sum$benthic_code[which(station_sum$n_test>1)]) #only FA - all is okay
 
 #this was done across the period break for 2016 - confirm if this is okay?
-county_ave<-ddply(station_sum,c("Sector","Year","benthic_code"),summarise,
+#new method: include Period, so we can compare post-2016 to pre-1998
+county_ave<-ddply(station_sum,c("Sector","Year","Period","benthic_code"),summarise,
                    ave_cover=mean(mean_cover),
                   n_sites=length(unique(Station)))
 
-#only take FA and HC
+#only take HC
 
-county_ave<-county_ave[which(county_ave$benthic_code=='HC'|county_ave$benthic_code=='FA'),]
+county_ave<-county_ave[which(county_ave$benthic_code=='HC'),]
 county_ave$ave_cover<-round(county_ave$ave_cover,2)
 
 
@@ -103,26 +104,57 @@ county_status3<-ddply(county_status2,c("Sector","benthic_code"),summarise,
                       recent_cover_ave=round(mean(recent_cover),2),
                       reference_cover_ave=round(mean(reference_cover),2))
 
+#period averages - pre-1998 vs post-2016(current)
+
+#this step is to average values from a particular site before averaging across period so that one site/area is not overly represented
+period_ave<-ddply(station_sum,c("Sector","Site","Station","Period","benthic_code"),summarise,
+                  ave_cover=mean(mean_cover),
+                  n_sites=length(unique(Year)))
+
+period_ave<-ddply(station_sum,c("Sector","Period","benthic_code"),summarise,
+                  ave_cover=mean(mean_cover),
+                  n_sites=length(unique(Station)))
+
+period_ave<-period_ave[which(period_ave$benthic_code=='HC'),]
+period_ave$ave_cover<-round(period_ave$ave_cover,2)
+
+period_ave2<-ddply(period_ave,c("Sector","Period","benthic_code"),summarise,
+                  mean_cover=mean(ave_cover),
+                  n_sites=length(unique(Station)))
+
+#change this period_ave if use the method of averaging across period
+county_status4<-ddply(period_ave2,c("Sector","benthic_code"),summarise,
+                      recent_cover=head(ave_cover,n=1),
+                      n_site_recent=head(n_sites,n=1),
+                      reference_cover=tail(ave_cover,n=1),
+                      n_site_ref=tail(n_sites,n=1))
+
+#can also consider doing comparisons per reef area and then aggregating the scores (0-1) by region/county
+
 county_status$status<-county_status$recent_cover/county_status$reference_cover
 
 
+# calculate 5 year trend ---------------------------------------------------------
 
+
+library(dplyr)
 #calculate trends
 ## minimum year here for illustration; it is based on data available
-year_min = 2011
+Year_min = 2011
 
-r.trend <- ry %>%
-  filter(year >= year_min) %>%
-  filter(!is.na(statusData)) %>%
-  group_by(region_id) %>%
-  arrange(year) %>%
-  top_n(5, year) %>%
+#
+r.trend <- county_ave %>%
+  filter(Year >= Year_min) %>%
+  filter(!is.na(ave_cover)) %>%
+  group_by(Sector) %>%
+  arrange(Year) %>%
+  top_n(5, Year) %>%
   ungroup()
 
 
-r.trend <- r.trend %>%
-  group_by(region_id) %>%
-  do(mdl = lm(statusData ~ year, data=.)) %>%
-  summarize( region_id = region_id,
-             trend = coef(mdl)['year']*5) %>%
+r.trend2 <- r.trend %>%
+  group_by(Sector) %>%
+  do(mdl = lm(ave_cover ~ Year, data=.)) %>%
+  summarize( region_id = Sector,
+             trend = coef(mdl)['Year']*5) %>%
   ungroup()
