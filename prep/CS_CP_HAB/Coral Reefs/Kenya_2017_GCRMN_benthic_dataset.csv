@@ -2486,13 +2486,13 @@ Kenya,2008,NA,Mombasa,Coral_Garden,NA,Algae-macro/fleshy,AMAC,32.2,NA,NA,NA,Pre,
 Kenya,2008,NA,Mombasa,Coral_Garden,NA,Algae-turf,ATRF,17.1,NA,NA,NA,Pre,GCRMN 2015,Kenya2008NAMombasaCoral_GardenNAPre
 Kenya,2008,NA,Mombasa,Coral_Garden,NA,Algae-coralline,ACOR,2.4,NA,NA,NA,Pre,GCRMN 2015,Kenya2008NAMombasaCoral_GardenNAPre
 Kenya,2008,NA,Mombasa,Coral_Garden,NA,Algae-Halimeda,AHAL,0.5,NA,NA,NA,Pre,GCRMN 2015,Kenya2008NAMombasaCoral_GardenNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Dead Standing coral,DC,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Coral,HC,24.3,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Rubble,RUB,26.3,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Algae-macro/fleshy,AMAC,1.6,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Algae-turf,ATRF,11.1,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Algae-coralline,ACOR,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
-Kenya,2008,NA,Mombasa,Kanamai,NA,Algae-Halimeda,AHAL,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Dead Standing coral,DC,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Coral,HC,24.3,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Rubble,RUB,26.3,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Algae-macro/fleshy,AMAC,1.6,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Algae-turf,ATRF,11.1,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Algae-coralline,ACOR,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
+Kenya,2008,NA,Kilifi,Kanamai,NA,Algae-Halimeda,AHAL,0,-3.92337,39.78758333,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKanamaiNAPre
 Kenya,2008,NA,Mombasa,Kasa,NA,Dead Standing coral,DC,0,-3.98282,39.76192,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKasaNAPre
 Kenya,2008,NA,Mombasa,Kasa,NA,Coral,HC,6.6,-3.98282,39.76192,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKasaNAPre
 Kenya,2008,NA,Mombasa,Kasa,NA,Rubble,RUB,0,-3.98282,39.76192,NA,Pre,GCRMN 2015,Kenya2008NAMombasaKasaNAPre
@@ -4418,51 +4418,51 @@ Kenya,2017,,Watamu,Uyombo_2,,Sand,SND,1,NA,NA,FIELDWORK,Post,post_bl_2016,Kenya2
 Kenya,2017,,Watamu,Uyombo_2,,Seagrass,SGR,13.67,NA,NA,FIELDWORK,Post,post_bl_2016,Kenya2017WatamuUyombo_2Post
 Kenya,2017,,Watamu,Uyombo_2,,Soft coral,SC,1.67,NA,NA,FIELDWORK,Post,post_bl_2016,Kenya2017WatamuUyombo_2Post
 Kenya,1996,Kilifi,Kilifi,Kuruwitu,,Coral,HC,24.4,,,,pre-1998,literature,
-Kenya,1994,Kilifi,Malindi Marine National Park,Malindi Marine National Park,,Coral,HC,35.7,,,,pre-1998,literature,
+Kenya,1994,Kilifi,Malindi,Malindi Marine National Park,,Coral,HC,35.7,,,,pre-1998,literature,
 Kenya,1991,Mombasa,Mombasa,Mombasa,,Coral,HC,31.75,,,,pre-1998,literature,
-Kenya,1997,Lamu,Northern Kenya (<3m),Northern Kenya (<3m),,Coral,HC,13.2,,,,pre-1998,literature,
-Kenya,1998,Lamu,Kiunga Marine Reserve,Kiunga Marine Reserve,,Coral,HC,15,,,,pre-1998,literature,
-Kenya,1992,Kilifi,Malindi Marine National Park,Malindi Marine National Park,,Coral,HC,20.8,,,,pre-1998,literature,
+Kenya,1997,Lamu,Kiunga_MNR,Northern Kenya (<3m),,Coral,HC,13.2,,,,pre-1998,literature,
+Kenya,1998,Lamu,Kiunga_MNR,Kiunga Marine Reserve,,Coral,HC,15,,,,pre-1998,literature,
+Kenya,1992,Kilifi,Malindi,Malindi Marine National Park,,Coral,HC,20.8,,,,pre-1998,literature,
 Kenya,1992,Kilifi,Watamu,Watamu,,Coral,HC,29.2,,,,pre-1998,literature,
-Kenya,1992,Kilifi,Vipingo,Vipingo,,Coral,HC,22,,,,pre-1998,literature,
-Kenya,1992,Kilifi,Kanamai,Kanamai,,Coral,HC,17.7,,,,pre-1998,literature,
-Kenya,1992,Mombasa,Mombasa,Mombasa,,Coral,HC,31.1,,,,pre-1998,literature,
-Kenya,1992,Kwale,Diani,Diani,,Coral,HC,6.4,,,,pre-1998,literature,
-Kenya,1986,Kilifi,Malindi Marine National Park,Malindi Marine National Park,,Coral,HC,25.1,,,,pre-1998,literature,
-Kenya,1985,Kilifi,Kanamai,Kanamai,,Coral,HC,5.5,,,,pre-1998,literature,
-Kenya,1970,Kwale,Diani,Diani,,Coral,HC,1,,,,pre-1998,literature,
-Kenya,1985,Kilifi,Watamu Marine Park (Coral Gardens and Lambis Reef),Watamu Marine Park (Coral Gardens and Lambis Reef),,Coral,HC,33,,,,pre-1998,literature,
-Kenya,1994,Kilifi,Watamu Marine Park (Coral Gardens and Lambis Reef),Watamu Marine Park (Coral Gardens and Lambis Reef),,Coral,HC,35,,,,pre-1998,literature,
-Kenya,1985,Kilifi,Malindi Marine National Park - Coral Gardens,Malindi Marine National Park - Coral Gardens,,Coral,HC,20,,,,pre-1998,literature,
-Kenya,1994,Kilifi,Malindi Marine National Park - Coral Gardens,Malindi Marine National Park - Coral Gardens,,Coral,HC,38,,,,pre-1998,literature,
-Kenya,1985,Kilifi,Malindi Marine National Park - North Reef Edge,Malindi Marine National Park - North Reef Edge,,Coral,HC,32,,,,pre-1998,literature,
-Kenya,1994,Kilifi,Malindi Marine National Park - North Reef Edge,Malindi Marine National Park - North Reef Edge,,Coral,HC,34,,,,pre-1998,literature,
+Kenya,1992,Kilifi,Kilifi,Vipingo,,Coral,HC,22,,,,pre-1998,literature,
+Kenya,1992,Kilifi,Kilifi,Kanamai,,Coral,HC,17.7,,,,pre-1998,literature,
+Kenya,1992,Mombasa,Mombasa,Mombasa Marine Park,,Coral,HC,31.1,,,,pre-1998,literature,
+Kenya,1992,Kwale,Diani_Chale,Diani,,Coral,HC,6.4,,,,pre-1998,literature,
+Kenya,1986,Kilifi,Malindi,Malindi Marine National Park,,Coral,HC,25.1,,,,pre-1998,literature,
+Kenya,1985,Kilifi,Kilifi,Kanamai,,Coral,HC,5.5,,,,pre-1998,literature,
+Kenya,1970,Kwale,Diani_Chale,Diani,,Coral,HC,1,,,,pre-1998,literature,
+Kenya,1985,Kilifi,Watamu,Watamu Marine Park (Coral Gardens and Lambis Reef),,Coral,HC,33,,,,pre-1998,literature,
+Kenya,1994,Kilifi,Watamu,Watamu Marine Park (Coral Gardens and Lambis Reef),,Coral,HC,35,,,,pre-1998,literature,
+Kenya,1985,Kilifi,Malindi,Malindi Marine National Park - Coral Gardens,,Coral,HC,20,,,,pre-1998,literature,
+Kenya,1994,Kilifi,Malindi,Malindi Marine National Park - Coral Gardens,,Coral,HC,38,,,,pre-1998,literature,
+Kenya,1985,Kilifi,Malindi,Malindi Marine National Park - North Reef Edge,,Coral,HC,32,,,,pre-1998,literature,
+Kenya,1994,Kilifi,Malindi,Malindi Marine National Park - North Reef Edge,,Coral,HC,34,,,,pre-1998,literature,
 Kenya,1988,Kilifi,Malindi,Malindi,,Coral,HC,44.3,,,,pre-1998,literature,
 Kenya,1988,Kilifi,Watamu,Watamu,,Coral,HC,10.4,,,,pre-1998,literature,
 Kenya,1988,Kwale,Kisite,Kisite,,Coral,HC,30.2,,,,pre-1998,literature,
-Kenya,1988,Kwale,Mako Kokwe,Mako Kokwe,,Coral,HC,17.9,,,,pre-1998,literature,
-Kenya,1988,Lamu,Simambya,Simambya,,Coral,HC,4.3,,,,pre-1998,literature,
+Kenya,1988,Kwale,Southcoast,Mako Kokwe,,Coral,HC,17.9,,,,pre-1998,literature,
+Kenya,1988,Lamu,Kiunga_MNR,Simambya,,Coral,HC,4.3,,,,pre-1998,literature,
 Kenya,1988,Lamu,Arletts,Arletts,,Coral,HC,3.8,,,,pre-1998,literature,
-Kenya,1988,Lamu,Kiwaiyu,Kiwaiyu,,Coral,HC,2.2,,,,pre-1998,literature,
-Kenya,1988,Kilifi,Malindi / watamu marine reserve,Malindi / watamu marine reserve,,Coral,HC,12.8,,,,pre-1998,literature,
-Kenya,1988,Kwale,Mpunguti,Mpunguti,,Coral,HC,24,,,,pre-1998,literature,
-Kenya,1988,Lamu,Kinyika,Kinyika,,Coral,HC,17,,,,pre-1998,literature,
-Kenya,1988,Kilifi,Uyombo,Uyombo,,Coral,HC,25.5,,,,pre-1998,literature,
+Kenya,1988,Lamu,Kiunga_MNR,Kiwaiyu,,Coral,HC,2.2,,,,pre-1998,literature,
+Kenya,1988,Kilifi,Watamu,Malindi / watamu marine reserve,,Coral,HC,12.8,,,,pre-1998,literature,
+Kenya,1988,Kwale,Shimoni,Mpunguti,,Coral,HC,24,,,,pre-1998,literature,
+Kenya,1988,Lamu,Lamu,Kinyika,,Coral,HC,17,,,,pre-1998,literature,
+Kenya,1988,Kilifi,Watamu,Uyombo,,Coral,HC,25.5,,,,pre-1998,literature,
 Kenya,1988,Kilifi,Kilifi,Kilifi,,Coral,HC,9.4,,,,pre-1998,literature,
 Kenya,1988,Kilifi,Mtwapa,Mtwapa,,Coral,HC,18.8,,,,pre-1998,literature,
-Kenya,1988,Mombasa,Bamburi,Bamburi,,Coral,HC,15.7,,,,pre-1998,literature,
-Kenya,1988,Mombasa,Leven,Leven,,Coral,HC,34.4,,,,pre-1998,literature,
-Kenya,1988,Mombasa,Andromache,Andromache,,Coral,HC,10.9,,,,pre-1998,literature,
-Kenya,1988,Kwale,Diani,Diani,,Coral,HC,3.1,,,,pre-1998,literature,
-Kenya,1988,Kwale,Mwipwa,Mwipwa,,Coral,HC,10.2,,,,pre-1998,literature,
+Kenya,1988,Mombasa,Mombasa,Bamburi,,Coral,HC,15.7,,,,pre-1998,literature,
+Kenya,1988,Mombasa,Mombasa,Leven,,Coral,HC,34.4,,,,pre-1998,literature,
+Kenya,1988,Mombasa,Mombasa,Andromache,,Coral,HC,10.9,,,,pre-1998,literature,
+Kenya,1988,Kwale,Diani_Chale,Diani,,Coral,HC,3.1,,,,pre-1998,literature,
+Kenya,1988,Kwale,Shimoni,Mwipwa,,Coral,HC,10.2,,,,pre-1998,literature,
 Kenya,1988,Kwale,Midjira,Midjira,,Coral,HC,1.9,,,,pre-1998,literature,
-Kenya,1993,Kwale,Kisite Marine National Park,Kisite Marine National Park - control,,Coral,HC,22.85,,,,pre-1998,literature,
-Kenya,1993,Kwale,Kisite Marine National Park,Kisite Marine National Park -exp,,Coral,HC,25.33,,,,pre-1998,literature,
-Kenya,1994,Kwale,Kisite Marine National Park,Kisite Marine National Park - control,,Coral,HC,20.75,,,,pre-1998,literature,
-Kenya,1994,Kwale,Kisite Marine National Park,Kisite Marine National Park - exp,,Coral,HC,24.2,,,,pre-1998,literature,
+Kenya,1993,Kwale,Kisite,Kisite Marine National Park - control,,Coral,HC,22.85,,,,pre-1998,literature,
+Kenya,1993,Kwale,Kisite,Kisite Marine National Park -exp,,Coral,HC,25.33,,,,pre-1998,literature,
+Kenya,1994,Kwale,Kisite,Kisite Marine National Park - control,,Coral,HC,20.75,,,,pre-1998,literature,
+Kenya,1994,Kwale,Kisite,Kisite Marine National Park - exp,,Coral,HC,24.2,,,,pre-1998,literature,
 Kenya,1997,Kilifi,Malindi,Malindi,,Coral,HC,17.6,,,,pre-1998,literature,
 Kenya,1997,Kilifi,Watamu,Watamu,,Coral,HC,30,,,,pre-1998,literature,
-Kenya,1997,Kilifi,Vipingo,Vipingo,,Coral,HC,18.1,,,,pre-1998,literature,
-Kenya,1997,Kilifi,Kanamai,Kanamai,,Coral,HC,12.7,,,,pre-1998,literature,
-Kenya,1997,Mombasa,Bamburi,Bamburi,,Coral,HC,8.9,,,,pre-1998,literature,
-Kenya,1997,Kwale,Diani,Diani,,Coral,HC,4.6,,,,pre-1998,literature,
+Kenya,1997,Kilifi,Kilifi,Vipingo,,Coral,HC,18.1,,,,pre-1998,literature,
+Kenya,1997,Kilifi,Kilifi,Kanamai,,Coral,HC,12.7,,,,pre-1998,literature,
+Kenya,1997,Mombasa,Mombasa,Bamburi,,Coral,HC,8.9,,,,pre-1998,literature,
+Kenya,1997,Kwale,Diani_Chale,Diani,,Coral,HC,4.6,,,,pre-1998,literature,

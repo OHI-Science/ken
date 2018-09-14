@@ -6,13 +6,36 @@ setwd(here::here('prep/CS_CP_HAB/Coral Reefs'))
 
 ken<-read.csv("Kenya_2017_GCRMN_benthic_dataset.csv",header = T,stringsAsFactors = F)
 
+
+# cleaning sites  ---------------------------------------------------------
+
+
+
+ken$Site[which(ken$Site=='Southcoast')]<-'Shimoni'
+ken$Site[which(ken$Site=='Diani-Chale')]<-'Diani_Chale'
+
+ken$Site[which(ken$Station=='Mpunguti-Upper_')]<-'Kisite'
+ken$Site[which(ken$Station=="Mpunguti-Lower")]<-'Kisite'
+ken$Site[which(ken$Station=='Mpunguti-Upper')]<-'Kisite'
+ken$Site[which(ken$Station=='Mpunguti')]<-'Kisite'
+ken$Site[which(ken$Station=='Kisite_Deep')]<-'Kisite'
+ken$Site[which(ken$Station=='Kisite-Exposed')]<-'Kisite'
+ken$Site[which(ken$Station=='kisite-sheltered')]<-'Kisite'
+ken$Site[which(ken$Station=='K-Light_House')]<-'Kisite'
+ken$Site[which(ken$Station=='Mwipwa')]<-'Kisite'
+ken$Site[which(ken$Station=='Masolini')]<-'Kisite'
+ken$Site[which(ken$Station=='MakoKokwe')]<-'Kisite'
+ken$Site[which(ken$Station=='Mako Kokwe')]<-'Kisite'
+ken$Site[which(ken$Station=='Arletts')]<-'Lamu'
+
+
 unique(ken$Site)
 f<-unique(ken[c('Site','Station')])
 f<-f[order(f$Site),]
 
 ken$Sector[which(ken$Site=='Diani_Chale')]<-'Kwale'
-ken$Sector[which(ken$Site=='Diani-Chale')]<-'Kwale'
-ken$Sector[which(ken$Site=='Southcoast')]<-'Kwale'
+# ken$Sector[which(ken$Site=='Diani-Chale')]<-'Kwale'
+# ken$Sector[which(ken$Site=='Southcoast')]<-'Kwale'
 ken$Sector[which(ken$Site=='Kisite')]<-'Kwale'
 ken$Sector[which(ken$Site=='Shimoni')]<-'Kwale'
 
@@ -26,6 +49,7 @@ ken$Sector[which(ken$Site=='Mombasa')]<-'Mombasa'
 ken$Sector[which(ken$Site=='Kiunga_MNR')]<-'Lamu'
 ken$Sector[which(ken$Site=='Lamu')]<-'Lamu'
 
+unique(ken$Sector)
 
 # ken$Sector[which(ken$Site=='')]<-'Tana River'
 
@@ -62,47 +86,109 @@ station_sum<-ddply(ken,c("Country","Year","Sector","Site","Station","Period","be
 
 unique(station_sum$benthic_code[which(station_sum$n_test>1)]) #only FA - all is okay
 
+#only take HC
+
+station_sum<-station_sum[which(station_sum$benthic_code=='HC'),]
+station_sum$mean_cover<-round(station_sum$mean_cover,2)
+
+
+# calculate status --------------------------------------------------------
+
+
+
+#only pre-98 values to calculate reference values for each site/area
+pre98<-station_sum[which(station_sum$Period=='pre-1998'),]
+
+#removing site specific data - use area aggregated data on its own
+pre98<-pre98[-c(1,7,9,10,11,(16:20),23:25),]  #21,22 are two lamu sites
+
+#calculates reference averages for each site
+ref_values<-ddply(pre98,c("Sector","Site","benthic_code"),summarise,
+                  ref_cover=mean(mean_cover))
+
+#remove some erronous values from the dataset
+station_sum1<-station_sum[-which(station_sum$Station=='Iweni'& station_sum$Period=='Post'),]
+station_sum2<-station_sum1[-which(station_sum1$Station=='Mpunguti-Upper'& station_sum1$Period=='Post'),]
+station_sum3<-station_sum2[-which(station_sum2$Station=='Tausi'& station_sum2$Period=='Post'),]
+
+station_sum<-station_sum3
+
+#now to calculate the current cover values for each site based on values for 3 most recent years
+#average over 2-3 years (current levels vs pre-1998)
+
+#step 1 - get the year average for each site
+site_ave<-ddply(station_sum,c("Sector","Site","Year","benthic_code"),summarise,
+                ave_cover=mean(mean_cover),
+                n_sites=length(unique(Station)))
+
+#step 2 - take the most recent 3 years of data for each site from site_ave - set n=4, and then pick 3 best years
+county_status_3yr<-ddply(site_ave,c("Sector","Site","benthic_code"),summarise,
+                         recent_cover=round(tail(ave_cover,n=4),2),
+                         recent_Year=tail(Year,n=4),
+                         n_site_recent=tail(n_sites,n=4))
+
+#remove extra and erronous years - left with 3 years per site
+county_status_3yr<-county_status_3yr[-c(which(county_status_3yr$Site=='Kilifi'& county_status_3yr$recent_Year==1997),
+                     which(county_status_3yr$Site=='Malindi'& county_status_3yr$recent_Year==2014),
+                     which(county_status_3yr$Site=='Watamu'& county_status_3yr$recent_Year==2014),
+                     which(county_status_3yr$Site=='Diani_Chale'& county_status_3yr$recent_Year==2004),
+                     which(county_status_3yr$Site=='Kisite'& county_status_3yr$recent_Year==2016),
+                     which(county_status_3yr$Site=='Shimoni'& county_status_3yr$recent_Year==2012),
+                     which(county_status_3yr$Site=='Kiunga_MNR'& county_status_3yr$recent_Year==2005),
+                     which(county_status_3yr$Site=='Mombasa'& county_status_3yr$recent_Year==2015),
+                     which(county_status_3yr$Site=='Lamu'& county_status_3yr$recent_Year==2016)),]
+
+
+
+#step 3: average across the 3 most recent years of data for each site to get recent cover values
+county_status_3yr_ave<-ddply(county_status_3yr,c("Sector","Site","benthic_code"),summarise,
+                             recent_cover_ave=round(mean(recent_cover),2))
+
+#step 4: match the reference values to the recent values in county_status_3yr_ave
+
+county_status_3yr_ave$ref_cover<-round(ref_values$ref_cover[match(county_status_3yr_ave$Site,ref_values$Site)],2)
+
+county_status_3yr_ave$score<-round(county_status_3yr_ave$recent_cover_ave/county_status_3yr_ave$ref_cover,3)
+
+county_status_3yr_ave<-county_status_3yr_ave[-which(is.na(county_status_3yr_ave$ref_cover)),]
+
+#to get OHI scores curtailed to max of 1
+county_status_3yr_ave$ohi_score<-round(county_status_3yr_ave$score,3)
+
+county_status_3yr_ave$ohi_score[which(county_status_3yr_ave$score>1)]<-1
+
+county_scores<-ddply(county_status_3yr_ave,c("Sector"),summarise,
+                     reg_score=round(mean(ohi_score),3)
+                     )
+
+write.csv(county_status_3yr,"3_years_recent_coral_cover_per_site.csv",row.names = F)
+write.csv(county_status_3yr_ave,"recent_and_reference_coral_cover_per_site.csv",row.names = F)
+write.csv(county_scores,"coral_final_regional_scores.csv",row.names = F)
+
+# other status methods -----------------------------------------------------
+
+
 #this was done across the period break for 2016 - confirm if this is okay?
 #new method: include Period, so we can compare post-2016 to pre-1998
-county_ave<-ddply(station_sum,c("Sector","Year","Period","benthic_code"),summarise,
+county_ave<-ddply(station_sum,c("Sector","Site","Year","Period","benthic_code"),summarise,
                    ave_cover=mean(mean_cover),
                   n_sites=length(unique(Station)))
 
-#only take HC
 
-county_ave<-county_ave[which(county_ave$benthic_code=='HC'),]
-county_ave$ave_cover<-round(county_ave$ave_cover,2)
-
-
-#county level = count_ave dataframe
-#calculate trend - 5 most recent years for each county (contains some gaps in years)
-county_trend<-ddply(county_ave,c("Sector","benthic_code"),summarise,
-recent_cover=tail(ave_cover,n=5),
-years=tail(Year,n=5))
-
-
-#calculate status/reference year
 #this is only using 1 single year for ref point and status - can we use an average of 2 or 3 years
-county_status<-ddply(county_ave,c("Sector","benthic_code"),summarise,
-                    recent_cover=tail(ave_cover,n=1),
-                    recent_Year=tail(Year,n=1),
-                    n_site_recent=tail(n_sites,n=1),
-                    reference_cover=head(ave_cover,n=1),
-                    reference_Year=head(Year,n=1),
-                    n_site_ref=head(n_sites,n=1))
+county_status<-ddply(county_ave,c("Sector","Site","Period","benthic_code"),summarise,
+                    recent_cover=tail(ave_cover,n=3),
+                    recent_Year=tail(Year,n=3),
+                    n_site_recent=tail(n_sites,n=3),
+                    reference_cover=head(ave_cover,n=3),
+                    reference_Year=head(Year,n=3),
+                    n_site_ref=head(n_sites,n=3))
 
-#average over 2-3 years
-county_status2<-ddply(county_ave,c("Sector","benthic_code"),summarise,
-                     recent_cover=tail(ave_cover,n=3),
-                     recent_Year=tail(Year,n=3),
-                     n_site_recent=tail(n_sites,n=3),
-                     reference_cover=head(ave_cover,n=3),
-                     reference_Year=head(Year,n=3),
-                     n_site_ref=head(n_sites,n=3))
 
-county_status3<-ddply(county_status2,c("Sector","benthic_code"),summarise,
-                      recent_cover_ave=round(mean(recent_cover),2),
-                      reference_cover_ave=round(mean(reference_cover),2))
+
+# county_status3<-ddply(county_status2,c("Sector","benthic_code"),summarise,
+#                       recent_cover_ave=round(mean(recent_cover),2),
+#                       reference_cover_ave=round(mean(reference_cover),2))
 
 #period averages - pre-1998 vs post-2016(current)
 
@@ -111,14 +197,14 @@ period_ave<-ddply(station_sum,c("Sector","Site","Station","Period","benthic_code
                   ave_cover=mean(mean_cover),
                   n_sites=length(unique(Year)))
 
-period_ave<-ddply(station_sum,c("Sector","Period","benthic_code"),summarise,
-                  ave_cover=mean(mean_cover),
-                  n_sites=length(unique(Station)))
+# period_ave<-ddply(station_sum,c("Sector","Period","benthic_code"),summarise,
+#                   ave_cover=mean(mean_cover),
+#                   n_sites=length(unique(Station)))
 
 period_ave<-period_ave[which(period_ave$benthic_code=='HC'),]
 period_ave$ave_cover<-round(period_ave$ave_cover,2)
 
-period_ave2<-ddply(period_ave,c("Sector","Period","benthic_code"),summarise,
+period_ave2<-ddply(period_ave,c("Site","Period","benthic_code"),summarise,
                   mean_cover=mean(ave_cover),
                   n_sites=length(unique(Station)))
 
@@ -135,7 +221,22 @@ county_status$status<-county_status$recent_cover/county_status$reference_cover
 
 
 # calculate 5 year trend ---------------------------------------------------------
+#county level = count_ave dataframe
 
+#step 1: get the yearly average - for each sector/county or site?
+
+county_ave<-ddply(station_sum,c("Sector","Year","benthic_code"),summarise,
+                  ave_cover=mean(mean_cover),
+                  sd=sd(mean_cover),
+                  n_sites=length(unique(Station)))
+
+#calculate trend - 5 most recent years for each county (contains some gaps in years)
+county_trend<-ddply(county_ave,c("Sector","benthic_code"),summarise,
+                    recent_cover=tail(ave_cover,n=6),
+                    sd=tail(sd,n=6),
+                    years=tail(Year,n=6))
+
+write.csv(county_trend,"coral_cover_trend_6years_per_county.csv",row.names = F)
 
 library(dplyr)
 #calculate trends
