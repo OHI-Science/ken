@@ -232,9 +232,10 @@ county_ave<-ddply(station_sum,c("Sector","Year","benthic_code"),summarise,
 
 #calculate trend - 5 most recent years for each county (contains some gaps in years)
 county_trend<-ddply(county_ave,c("Sector","benthic_code"),summarise,
-                    recent_cover=tail(ave_cover,n=6),
-                    sd=tail(sd,n=6),
-                    years=tail(Year,n=6))
+                    recent_cover=round(tail(ave_cover,n=6),2),
+                    sd=round(tail(sd,n=6),2),
+                    years=tail(Year,n=6),
+                    n=tail(n_sites,n=6))
 
 write.csv(county_trend,"coral_cover_trend_6years_per_county.csv",row.names = F)
 
