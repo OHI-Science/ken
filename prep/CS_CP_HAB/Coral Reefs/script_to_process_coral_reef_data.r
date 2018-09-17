@@ -167,7 +167,11 @@ county_scores$rgn_id[which(county_scores$Sector=='Kwale')]<-2
 county_scores$rgn_id[which(county_scores$Sector=='Kilifi')]<-3
 county_scores$rgn_id[which(county_scores$Sector=='Lamu')]<-5
 
-county_scores<-county_scores[,c(3,2)]
+county_scores$year<-2017
+county_scores$year[which(county_scores$Sector=='Mombasa')]<-2016
+county_scores$habitat<-'coral'
+
+county_scores<-county_scores[,c(3,5,4,2)]
 
 county_scores<-county_scores[order(county_scores$rgn_id),]
 
