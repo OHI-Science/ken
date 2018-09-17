@@ -19,7 +19,7 @@ par(mfrow=c(1,2)) #set plotting window to show 2 plots side by side
 # setwd(here::here('Chemical pollution'))   #setwd to a file path we all have - doesn't work, cant change wd
 
 #read in the ROI shapefile and reproject to Mollweide
-rgn  = readOGR("D:/git/ken/prep/CS_CP_HAB/Mangrove/Shapefiles for clipping Ken-counties/kenya_ohi_manngroves.shp")  #navigates from ken folder
+rgn  = readOGR("D:/git/ken/prep/CS_CP_HAB/Mangrove/shapefiles/ken_ohi_counties.shp")  #navigates from ken folder
 
 plot(rgn,main = "kenya_ohi_counties \n WGS84 projection")
 
@@ -31,11 +31,11 @@ plot(rgn,main = "kenya_ohi_counties \n WGS84 projection")
 #NOTE: MUST ALTER FOLDER NAME BASED ON WHERE GLOBAL TIF FILES ARE SAVED - SUBSTITUTE 'global tif' in lines below with folder name
 #reason for this is global files are too large to upload onto github so each person will have it located in different folder
 
-f <- list.files("D:/git/ken/prep/CS_CP_HAB/Mangrove/national layers",pattern=".tif")     #lists all files in target folder with .tif in file name
+f <- list.files("D:/git/ken/prep/CS_CP_HAB/Mangrove/national tiffs",pattern=".tif")     #lists all files in target folder with .tif in file name
 
 for (i in 1:length(f)){
 
- myraster <- raster(paste("D:/git/ken/prep/CS_CP_HAB/Mangrove/national layers/",f[i],sep=""))
+ myraster <- raster(paste("D:/git/ken/prep/CS_CP_HAB/Mangrove/national tiffs/",f[i],sep=""))
 
 # plot(myraster,main="Define your title",axes=F, legend.args=list(text='define your legend', side=4, font=2, line=2.5, cex=0.8))
 # plot(rgn_moll,add=T)
