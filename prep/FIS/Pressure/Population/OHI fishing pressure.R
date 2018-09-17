@@ -8,7 +8,7 @@ library(rgeos)
 library(dplyr)#for summarising data
 ##############################################################################################
 #Import high resolution coastline
-coastline<-readOGR("D:/git/ken/prep/CS_CP_HAB/Pressure/Population/shapefiles/wio_coastline.shp")  #navigates from ken folder
+coastline<-readOGR("D:/git/ken/prep/FIS/Pressure/Population/shapefiles/wio_coastline.shp")  #navigates from ken folder
 
 plot(coastline,col="red", main="WIO High resolution")#optional
 
@@ -18,7 +18,7 @@ plot(coastline,col="red", main="WIO High resolution")#optional
 coastline_utm<-spTransform(coastline,CRS("+init=epsg:32737 +proj=utm +zone=37 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"))
 
 #Define buffer width
-coast_25mile_buffer<-gBuffer(coastline_utm, width = 8046.72)
+coast_25mile_buffer<-gBuffer(coastline_utm, width =40233.6)
 
 #reproject back to wgs-84
 coastline_buffer_wgs84<-spTransform(coast_25mile_buffer,CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"))
@@ -47,7 +47,7 @@ plot(coastline_buffer_wgs84, add=TRUE)
 
 # To get all values within each region-need to import ohi admin regions-rgn.This should be the land admin x
 
-rgn<-readOGR("D:/git/ken/prep/CS_CP_HAB/Pressure/Population/shapefiles/ken_ohi_counties.shp")
+rgn<-readOGR("D:/git/ken/prep/FIS/Pressure/Population/shapefiles/ken_ohi_counties.shp")
 vals = extract(gpwv4_2015_cropped,rgn,method='simple')%>%
   setNames(rgn@data$rgn_name)
 
@@ -75,7 +75,7 @@ knitr::kable(total_df)
 
 #create a directory "total population" and export population data to csv
 
-dir.create(file.path('D:/git/ken/prep/CS_CP_HAB/Pressure/Population/','Extracted_regional_value _csv'), showWarnings = FALSE) #creates new sub folder
+dir.create(file.path('D:/git/ken/prep/FIS/Pressure/Population/','Extracted_regional_value _csv'), showWarnings = FALSE) #creates new sub folder
 
 
-write.csv(total_df,"D:/git/ken/prep/CS_CP_HAB/Pressure/Population/Extracted_regional_value _csv/2015_human_pop_county_at_5miles_buffer.csv",row.names = F)
+write.csv(total_df,"D:/git/ken/prep/FIS/Pressure/Population/Extracted_regional_value _csv/2015_human_pop_county_at_25miles_buffer.csv",row.names = F)
