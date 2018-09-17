@@ -1,5 +1,5 @@
-"rgn_id","score"
-1,1
-2,1
-3,0.847
-5,1
+"rgn_id","habitat","year","score"
+1,"coral",2016,1
+2,"coral",2017,1
+3,"coral",2017,0.847
+5,"coral",2017,1
