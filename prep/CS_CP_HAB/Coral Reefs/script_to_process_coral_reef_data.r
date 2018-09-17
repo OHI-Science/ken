@@ -158,7 +158,7 @@ county_status_3yr_ave$ohi_score<-round(county_status_3yr_ave$score,3)
 county_status_3yr_ave$ohi_score[which(county_status_3yr_ave$score>1)]<-1
 
 county_scores<-ddply(county_status_3yr_ave,c("Sector"),summarise,
-                     score=round(mean(ohi_score),3)
+                     health=round(mean(ohi_score),3)
                      )
 
 county_scores$rgn_id<-NA
