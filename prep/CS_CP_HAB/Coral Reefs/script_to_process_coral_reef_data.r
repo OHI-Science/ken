@@ -158,12 +158,22 @@ county_status_3yr_ave$ohi_score<-round(county_status_3yr_ave$score,3)
 county_status_3yr_ave$ohi_score[which(county_status_3yr_ave$score>1)]<-1
 
 county_scores<-ddply(county_status_3yr_ave,c("Sector"),summarise,
-                     reg_score=round(mean(ohi_score),3)
+                     score=round(mean(ohi_score),3)
                      )
+
+county_scores$rgn_id<-NA
+county_scores$rgn_id[which(county_scores$Sector=='Mombasa')]<-1
+county_scores$rgn_id[which(county_scores$Sector=='Kwale')]<-2
+county_scores$rgn_id[which(county_scores$Sector=='Kilifi')]<-3
+county_scores$rgn_id[which(county_scores$Sector=='Lamu')]<-5
+
+county_scores<-county_scores[,c(3,2)]
+
+county_scores<-county_scores[order(county_scores$rgn_id),]
 
 write.csv(county_status_3yr,"3_years_recent_coral_cover_per_site.csv",row.names = F)
 write.csv(county_status_3yr_ave,"recent_and_reference_coral_cover_per_site.csv",row.names = F)
-write.csv(county_scores,"coral_final_regional_scores.csv",row.names = F)
+write.csv(county_scores,"hab_coral_health_ken2018.csv",row.names = F)
 
 # other status methods -----------------------------------------------------
 
