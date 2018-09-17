@@ -1,8 +1,12 @@
 library(plyr)
 #GOOD PRACTICE TO ADD A TITLE TO YOUR SCRIPT AND A BRIEF EXPLANATION OF WHAT THE SCRIPT DOES
 
+library(here)
+
+setwd(here::here('prep/pressures/Softbottom subtidal habitat destruction/'))
+
 #Name of dataset
-prawn_trawling_data_<-read.csv(file = "prep/pressures/Softbottom subtidal habitat destruction/prawn trawling data .csv",header = T,stringsAsFactors = F)
+prawn_trawling_data_<-read.csv(file = "prawn trawling data .csv",header = T,stringsAsFactors = F)
 
 #column rename - remove the space
 colnames(prawn_trawling_data_)[1]<-'Vessel_Name'
@@ -57,13 +61,21 @@ year_effort<-ddply(total_time,c("Year"),summarise,
 
 total_time$year_minutes<-year_effort$year_time[match(total_time$Year,year_effort$Year)]
 
-total_time$proportion_effort<-round(total_time$total_minutes/total_time$year_minutes,3)
+total_time$pressure_score<-round(total_time$total_minutes/total_time$year_minutes,3)
 
-write.csv(total_time,"prep/pressures/Softbottom subtidal habitat destruction/Total_effort_fishing_shallow_water_prawn_trawl.csv",row.names = F)
+write.csv(total_time,"Total_effort_fishing_shallow_water_prawn_trawl.csv",row.names = F)
 
-final_results<-total_time[,c(1,3,8)]
+total_time$rgn_id<-NA
 
-write.csv(final_results,"prep/pressures/Softbottom subtidal habitat destruction/subtidal_hab_destr_final_county_Scores.csv",row.names = F)
+total_time$rgn_id[which(total_time$Region=='Kilifi')]<-3
+total_time$rgn_id[which(total_time$Region=='Tana River')]<-4
+
+
+final_results<-total_time[,c(9,3,8)]
+
+final_results<-final_results[-which(final_results$Year==2018),]
+
+write.csv(final_results,"hd_subtidal_sb_ken2018.csv",row.names = F)
 
 #Getting total time at each trawl vessel (?)#
 
