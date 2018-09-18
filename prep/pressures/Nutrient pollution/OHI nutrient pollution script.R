@@ -19,7 +19,9 @@ par(mfrow=c(1,2)) #set plotting window to show 2 plots side by side
 # setwd(here::here('Chemical pollution'))   #setwd to a file path we all have - doesn't work, cant change wd
 
 #read in the ROI shapefile and reproject to Mollweide
-rgn  = readOGR('D:/1 GIS/5.1 Spatial outputs/Projects/Crosscutting/github/kenya/prep/pressures/Nutrient pollution/Shapefiles for clipping Ken/KENOHI.shp')  #navigates from ken folder
+setwd(here::here('prep/pressures/Nutrient pollution/'))
+
+rgn  = readOGR('Shapefiles for clipping Ken/KENOHI.shp')  #navigates from ken folder
 
 plot(rgn,main = "KENOHI regions \n WGS84 projection")
 
@@ -103,13 +105,30 @@ write.csv(regional_values,"./prep/pressures/Nutrient pollution/Extracted_regiona
 #use ddply to get average chemical pollution levels across years for each region
 library(plyr)
 
+regional_values<-read.csv("Extracted_regional_value _csv/Kenya_all_values_per_region_all_years.csv",header = T,stringsAsFactors = F)
+
 #first step - yearly average per region
 yearly_scores<-ddply(regional_values,c("rgn_name","year"),summarise,
-                       year_ave=mean(value,na.rm=T))
+                       year_ave=round(mean(value,na.rm=T),3))
+
+yearly_scores$rgn_id<-NA
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='Mombasa')]<-1
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='Kwale')]<-2
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='Kilifi')]<-3
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='Tana River')]<-4
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='Lamu')]<-5
+yearly_scores$rgn_id[which(yearly_scores$rgn_name=='EEZ')]<-6
+
+yearly_scores2<-yearly_scores[,c(4,2,3)]
+colnames(yearly_scores2)[3]<-'pressure_score'
+yearly_scores2<-yearly_scores2[order(yearly_scores2$rgn_id),]
+
+
+write.csv(yearly_scores2,"po_nutrients_12nm_ken2018.csv",row.names = F)
 
 #second step - overall average across years per region
 
 regional_scores<-ddply(yearly_scores,c("rgn_name"),summarise,
                        reg_ave=mean(year_ave,na.rm=T))
 
-write.csv(regional_scores,"./prep/pressures/Nutrient pollution/data layers/Kenya_ave_nutrient_regional_values.csv",row.names = F)
+write.csv(regional_scores,"data layers/Kenya_ave_nutrient_regional_values.csv",row.names = F)
