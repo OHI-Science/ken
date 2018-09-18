@@ -1658,6 +1658,9 @@ HAB <- function(layers) {
     mutate(layer = "element_wts_hab_pres_abs") %>%
     select(rgn_id = region_id, habitat, boolean, layer)
 
+  scen_year <- layers$data$scenario_year #this is 2017 and is set in calculate_scores.Rmd
+  #added so that loop command below can work - as scen_year was commented out at start of HAB function
+
   write.csv(weights,
             sprintf("temp/element_wts_hab_pres_abs_%s.csv", scen_year),
             row.names = FALSE)
