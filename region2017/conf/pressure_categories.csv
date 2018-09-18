@@ -24,3 +24,4 @@ ss_spi,social,social
 fp_destructive_fishing,ecological,fishing_pressure
 fp_fish_demand,ecological,fishing_pressure
 po_nutrients_12nm,ecological,pollution
+fp_fishing_intensity,ecological,fishing_pressure
