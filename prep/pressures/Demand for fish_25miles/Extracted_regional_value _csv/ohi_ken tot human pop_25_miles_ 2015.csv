@@ -1,6 +1,8 @@
-rgn_id,rgn_name, total_pop2015 
-2,Kilifi,"1,233,075"
-3,Kwale,"610,615"
-5,Lamu,"108,837"
-1,Mombasa,"1,053,868"
-4,Tana River,"74,337"
+rgn_id,rgn_name, total_pop2015 ,proportion of total 25mile,pressure_score
+2,Kilifi,"1,233,075",0.400,0.400
+3,Kwale,"610,615",0.198,0.198
+5,Lamu,"108,837",0.035,0.035
+1,Mombasa,"1,053,868",0.342,0.342
+4,Tana River,"74,337",0.024,0.024
+,,,,
+,total,"3,080,732",,

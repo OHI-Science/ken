@@ -15,7 +15,9 @@ options(scipen = 999) #this forces reporting in non scientific notation
 
 
 #read in the high resolution coastline
-coastline<-readOGR("D:/git/ken/prep/pressures/Population/coastline _buffer/wio_coastline.shp")  #navigates from ken folder
+setwd(here::here('prep/pressures/Population/'))
+
+coastline<-readOGR("coastline _buffer/wio_coastline.shp")  #navigates from ken folder
 
 plot(coastline,col="red", main="WIO High resolution")
 
