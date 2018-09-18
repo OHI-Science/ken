@@ -1,4 +1,4 @@
-"rgn_id","Year","pressure_score"
+rgn_id,year,pressure_score
 1,2004,0.045
 1,2006,0.043
 1,2008,0.216
