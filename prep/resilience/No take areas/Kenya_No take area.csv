@@ -1,6 +1,6 @@
-county_id,rgn_name,no_take area_km2,12_nm_eez_area_km2
-1,Mombasa,10,621.3879956
-2,Kilifi,206.5,3623.218655
-3,Kwale,34,2039.630663
-4,Tana River,0,1445.227922
-5,Lamu,0,3130.228095
+county_id,rgn_name,no_take area_km2,12_nm_eez_area_km2,percent_NTA,score (compared to 10% target),
+1,Mombasa,10,621.3879956,1.609300481,0.161,
+2,Kilifi,206.5,3623.218655,5.699352417,0.570,
+3,Kwale,34,2039.630663,1.666968467,0.167,
+4,Tana River,0,1445.227922,0,0.000,
+5,Lamu,0,3130.228095,0,0.000,
