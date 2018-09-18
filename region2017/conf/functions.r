@@ -1533,7 +1533,10 @@ CW <- function(layers) {
 
 
 HAB <- function(layers) {
-  scen_year <- layers$data$scenario_year
+  #scen_year <- layers$data$scenario_year #this is 2017 and is set in calculate_scores.Rmd
+  #since there are multiple years in the habitat data you need to have years
+  #selected based on max year per region per habitat
+
 
 
   extent_lyrs <-
@@ -1566,18 +1569,24 @@ HAB <- function(layers) {
 
   # get data together:
   extent <- AlignManyDataYears(extent_lyrs) %>%
-    filter(scenario_year == scen_year) %>%
+    group_by(rgn_id,habitat) %>%
+    filter(scenario_year == max(scenario_year)) %>%
     select(region_id = rgn_id, habitat, extent = km2) %>%
+    ungroup()%>%
     mutate(habitat = as.character(habitat))
 
   health <- AlignManyDataYears(health_lyrs) %>%
-    filter(scenario_year == scen_year) %>%
+    group_by(rgn_id,habitat) %>%
+    filter(scenario_year == max(scenario_year)) %>%
     select(region_id = rgn_id, habitat, health) %>%
+    ungroup()%>%
     mutate(habitat = as.character(habitat))
 
   trend <- AlignManyDataYears(trend_lyrs) %>%
-    filter(scenario_year == scen_year) %>%
+    group_by(rgn_id,habitat) %>%
+    filter(scenario_year == max(scenario_year)) %>%
     select(region_id = rgn_id, habitat, trend) %>%
+    ungroup()%>%
     mutate(habitat = as.character(habitat))
 
 
