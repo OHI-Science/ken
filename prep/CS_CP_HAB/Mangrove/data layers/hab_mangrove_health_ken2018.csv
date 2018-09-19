@@ -1,6 +1,6 @@
-rgn_id,rgn_name,habitat,year,current status
-4,Tana River,mangrove,2014,0.18
-1,Mombasa,mangrove,2014,0.23
-3,Kilifi,mangrove,2014,0.67
-5,Lamu,mangrove,2014,0.85
-2,Kwale,mangrove,2014,0.92
+rgn_id,habitat,year,health
+1,mangrove,2014,0.23
+2,mangrove,2014,0.92
+3,mangrove,2014,0.67
+4,mangrove,2014,0.18
+5,mangrove,2014,0.85
