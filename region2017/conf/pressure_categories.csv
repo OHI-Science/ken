@@ -27,3 +27,4 @@ po_nutrients_12nm,ecological,pollution
 fp_fishing_intensity,ecological,fishing_pressure
 fp_prawn_bc,ecological,fishing_pressure
 ss_cdi,social,social
+ss_cpi,social,social
