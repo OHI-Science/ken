@@ -257,7 +257,7 @@ county_ave<-county_ave[-c(which(county_ave$Sector=='Kilifi'& county_ave$Year==20
 #                     years=tail(Year,n=6),
 #                     n=tail(n_sites,n=6))
 
-write.csv(county_trend,"coral_cover_trend_6years_per_county.csv",row.names = F)
+# write.csv(county_trend,"coral_cover_trend_6years_per_county.csv",row.names = F)
 
 library(dplyr)
 #calculate trends
@@ -289,7 +289,8 @@ dplyr::summarize(Sector, score = ifelse(coef(mdl)['Year']==0, 0, coef(mdl)['Year
   dplyr::mutate(score = ifelse(score<(-1), (-1), score)) %>%
   dplyr::mutate(score = round(score, 4)) %>%
   dplyr::mutate(dimension = "trend") %>%
-  dplyr::select(Sector, score, dimension)
+  dplyr::mutate(habitat = "coral") %>%
+  dplyr::select(Sector,habitat ,score, dimension)
 
 r.trend2$rgn_id<-NA
 r.trend2$rgn_id[which(r.trend2$Sector=='Mombasa')]<-1
@@ -297,8 +298,21 @@ r.trend2$rgn_id[which(r.trend2$Sector=='Kwale')]<-2
 r.trend2$rgn_id[which(r.trend2$Sector=='Kilifi')]<-3
 r.trend2$rgn_id[which(r.trend2$Sector=='Lamu')]<-5
 
+#change score name to trend
 
-write.csv(trend2,"hab_coral_trend_ken2018.csv",row.names = F)
+colnames(r.trend2)[3]<-'trend'
+
+# add year column, latest year for each county
+maxyear<-ddply(r.trend,c("Sector"),summarise,
+      max_year=max(Year))
+
+r.trend2$year<-maxyear$max_year[match(r.trend2$Sector,maxyear$Sector)]
+
+r.trend2<-r.trend2[,c(5,2,6,3)]
+
+r.trend2<-r.trend2[order(r.trend2$rgn_id),]
+
+write.csv(r.trend2,"hab_coral_trend_ken2018.csv",row.names = F)
 
 # status_data<-county_ave
 #
