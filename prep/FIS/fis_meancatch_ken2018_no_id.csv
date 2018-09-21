@@ -1,0 +1,376 @@
+rgn_id,stock_id,year,mean_catch
+Lamu,Siganus_sutor,2002,167.757
+Lamu,Siganus_sutor,2003,182.269
+Lamu,Siganus_sutor,2004,182.267
+Lamu,Siganus_sutor,2005,244.955
+Lamu,Siganus_sutor,2006,245.549
+Lamu,Siganus_sutor,2007,210.577
+Lamu,Siganus_sutor,2008,234.82
+Lamu,Siganus_sutor,2009,226.745
+Lamu,Siganus_sutor,2010,310
+Lamu,Siganus_sutor,2011,337.982
+Lamu,Siganus_sutor,2012,270
+Lamu,Siganus_sutor,2013,339
+Lamu,Siganus_sutor,2014,331
+Lamu,Siganus_sutor,2015,475
+Lamu,Siganus_sutor,2016,831.441
+Tana river,Siganus_sutor,2002,1.993
+Tana river,Siganus_sutor,2003,3.535
+Tana river,Siganus_sutor,2004,3.37
+Tana river,Siganus_sutor,2005,2.957
+Tana river,Siganus_sutor,2006,6.572
+Tana river,Siganus_sutor,2007,0.249
+Tana river,Siganus_sutor,2008,1.541
+Tana river,Siganus_sutor,2009,1.506
+Tana river,Siganus_sutor,2010,5
+Tana river,Siganus_sutor,2011,26.637
+Tana river,Siganus_sutor,2012,20
+Tana river,Siganus_sutor,2013,27
+Tana river,Siganus_sutor,2014,5
+Tana river,Siganus_sutor,2015,0
+Tana river,Siganus_sutor,2016,94
+Kilifi,Siganus_sutor,2002,55.785
+Kilifi,Siganus_sutor,2003,80.078
+Kilifi,Siganus_sutor,2004,63.301
+Kilifi,Siganus_sutor,2005,70.943
+Kilifi,Siganus_sutor,2006,54.445
+Kilifi,Siganus_sutor,2007,88.527
+Kilifi,Siganus_sutor,2008,68.398
+Kilifi,Siganus_sutor,2009,32.961
+Kilifi,Siganus_sutor,2010,113
+Kilifi,Siganus_sutor,2011,161.562
+Kilifi,Siganus_sutor,2012,115
+Kilifi,Siganus_sutor,2013,162
+Kilifi,Siganus_sutor,2014,121
+Kilifi,Siganus_sutor,2015,343
+Kilifi,Siganus_sutor,2016,537.523
+Mombasa,Siganus_sutor,2002,18.968
+Mombasa,Siganus_sutor,2003,29.993
+Mombasa,Siganus_sutor,2004,32.082
+Mombasa,Siganus_sutor,2005,3.869
+Mombasa,Siganus_sutor,2006,37.344
+Mombasa,Siganus_sutor,2007,59.483
+Mombasa,Siganus_sutor,2008,69.981
+Mombasa,Siganus_sutor,2009,63.981
+Mombasa,Siganus_sutor,2010,84
+Mombasa,Siganus_sutor,2011,108.066
+Mombasa,Siganus_sutor,2012,98
+Mombasa,Siganus_sutor,2013,108
+Mombasa,Siganus_sutor,2014,89
+Mombasa,Siganus_sutor,2015,235
+Mombasa,Siganus_sutor,2016,438.678
+Kwale,Siganus_sutor,2002,124.238
+Kwale,Siganus_sutor,2003,85.724
+Kwale,Siganus_sutor,2004,72.629
+Kwale,Siganus_sutor,2005,55.567
+Kwale,Siganus_sutor,2006,68.219
+Kwale,Siganus_sutor,2007,72.762
+Kwale,Siganus_sutor,2008,93.615
+Kwale,Siganus_sutor,2009,9.342
+Kwale,Siganus_sutor,2010,165
+Kwale,Siganus_sutor,2011,157.091
+Kwale,Siganus_sutor,2012,143
+Kwale,Siganus_sutor,2013,158
+Kwale,Siganus_sutor,2014,176
+Kwale,Siganus_sutor,2015,434
+Kwale,Siganus_sutor,2016,486.186
+Lamu,Rastrelliger_kanagurta,2002,0
+Lamu,Rastrelliger_kanagurta,2003,0
+Lamu,Rastrelliger_kanagurta,2004,0
+Lamu,Rastrelliger_kanagurta,2005,9.07
+Lamu,Rastrelliger_kanagurta,2006,1.99
+Lamu,Rastrelliger_kanagurta,2007,0
+Lamu,Rastrelliger_kanagurta,2008,9.482
+Lamu,Rastrelliger_kanagurta,2009,0
+Lamu,Rastrelliger_kanagurta,2010,0
+Lamu,Rastrelliger_kanagurta,2011,0
+Lamu,Rastrelliger_kanagurta,2012,0
+Lamu,Rastrelliger_kanagurta,2013,0
+Lamu,Rastrelliger_kanagurta,2014,0
+Lamu,Rastrelliger_kanagurta,2015,0
+Lamu,Rastrelliger_kanagurta,2016,9
+Tana river,Rastrelliger_kanagurta,2002,0
+Tana river,Rastrelliger_kanagurta,2003,0
+Tana river,Rastrelliger_kanagurta,2004,0
+Tana river,Rastrelliger_kanagurta,2005,0
+Tana river,Rastrelliger_kanagurta,2006,3.691
+Tana river,Rastrelliger_kanagurta,2007,5.665
+Tana river,Rastrelliger_kanagurta,2008,0
+Tana river,Rastrelliger_kanagurta,2009,0
+Tana river,Rastrelliger_kanagurta,2010,3
+Tana river,Rastrelliger_kanagurta,2011,10.891
+Tana river,Rastrelliger_kanagurta,2012,21
+Tana river,Rastrelliger_kanagurta,2013,11
+Tana river,Rastrelliger_kanagurta,2014,3
+Tana river,Rastrelliger_kanagurta,2015,1
+Tana river,Rastrelliger_kanagurta,2016,2
+Kilifi,Rastrelliger_kanagurta,2002,89.603
+Kilifi,Rastrelliger_kanagurta,2003,53.493
+Kilifi,Rastrelliger_kanagurta,2004,33.668
+Kilifi,Rastrelliger_kanagurta,2005,10.674
+Kilifi,Rastrelliger_kanagurta,2006,18.473
+Kilifi,Rastrelliger_kanagurta,2007,37.66
+Kilifi,Rastrelliger_kanagurta,2008,5.986
+Kilifi,Rastrelliger_kanagurta,2009,62.912
+Kilifi,Rastrelliger_kanagurta,2010,191
+Kilifi,Rastrelliger_kanagurta,2011,184.133
+Kilifi,Rastrelliger_kanagurta,2012,112
+Kilifi,Rastrelliger_kanagurta,2013,179
+Kilifi,Rastrelliger_kanagurta,2014,204
+Kilifi,Rastrelliger_kanagurta,2015,300
+Kilifi,Rastrelliger_kanagurta,2016,300
+Mombasa,Rastrelliger_kanagurta,2002,141.68
+Mombasa,Rastrelliger_kanagurta,2003,21.839
+Mombasa,Rastrelliger_kanagurta,2004,15.014
+Mombasa,Rastrelliger_kanagurta,2005,12.018
+Mombasa,Rastrelliger_kanagurta,2006,36.482
+Mombasa,Rastrelliger_kanagurta,2007,23.027
+Mombasa,Rastrelliger_kanagurta,2008,44.675
+Mombasa,Rastrelliger_kanagurta,2009,44.675
+Mombasa,Rastrelliger_kanagurta,2010,54
+Mombasa,Rastrelliger_kanagurta,2011,30.514
+Mombasa,Rastrelliger_kanagurta,2012,34
+Mombasa,Rastrelliger_kanagurta,2013,29
+Mombasa,Rastrelliger_kanagurta,2014,57
+Mombasa,Rastrelliger_kanagurta,2015,20
+Mombasa,Rastrelliger_kanagurta,2016,9
+Kwale,Rastrelliger_kanagurta,2002,76.461
+Kwale,Rastrelliger_kanagurta,2003,140.371
+Kwale,Rastrelliger_kanagurta,2004,127.288
+Kwale,Rastrelliger_kanagurta,2005,83.994
+Kwale,Rastrelliger_kanagurta,2006,88.896
+Kwale,Rastrelliger_kanagurta,2007,147.534
+Kwale,Rastrelliger_kanagurta,2008,94.58
+Kwale,Rastrelliger_kanagurta,2009,7.057
+Kwale,Rastrelliger_kanagurta,2010,172
+Kwale,Rastrelliger_kanagurta,2011,113.531
+Kwale,Rastrelliger_kanagurta,2012,162
+Kwale,Rastrelliger_kanagurta,2013,110
+Kwale,Rastrelliger_kanagurta,2014,184
+Kwale,Rastrelliger_kanagurta,2015,113
+Kwale,Rastrelliger_kanagurta,2016,110
+Lamu,Sphyraena_sp,2002,13.95
+Lamu,Sphyraena_sp,2003,21.9
+Lamu,Sphyraena_sp,2004,19.893
+Lamu,Sphyraena_sp,2005,23.732
+Lamu,Sphyraena_sp,2006,40.854
+Lamu,Sphyraena_sp,2007,52.945
+Lamu,Sphyraena_sp,2008,46.745
+Lamu,Sphyraena_sp,2009,50.629
+Lamu,Sphyraena_sp,2010,59
+Lamu,Sphyraena_sp,2011,69.416
+Lamu,Sphyraena_sp,2012,63
+Lamu,Sphyraena_sp,2013,67
+Lamu,Sphyraena_sp,2014,63
+Lamu,Sphyraena_sp,2015,16
+Lamu,Sphyraena_sp,2016,36.594
+Tana river,Sphyraena_sp,2002,0.822
+Tana river,Sphyraena_sp,2003,1.188
+Tana river,Sphyraena_sp,2004,1.413
+Tana river,Sphyraena_sp,2005,1.214
+Tana river,Sphyraena_sp,2006,0
+Tana river,Sphyraena_sp,2007,0
+Tana river,Sphyraena_sp,2008,1.51
+Tana river,Sphyraena_sp,2009,2.18
+Tana river,Sphyraena_sp,2010,3
+Tana river,Sphyraena_sp,2011,20.672
+Tana river,Sphyraena_sp,2012,23
+Tana river,Sphyraena_sp,2013,20
+Tana river,Sphyraena_sp,2014,4
+Tana river,Sphyraena_sp,2015,0
+Tana river,Sphyraena_sp,2016,7.38
+Kilifi,Sphyraena_sp,2002,32.001
+Kilifi,Sphyraena_sp,2003,25.19
+Kilifi,Sphyraena_sp,2004,10.913
+Kilifi,Sphyraena_sp,2005,21.81
+Kilifi,Sphyraena_sp,2006,23.056
+Kilifi,Sphyraena_sp,2007,56.663
+Kilifi,Sphyraena_sp,2008,53.583
+Kilifi,Sphyraena_sp,2009,31.83
+Kilifi,Sphyraena_sp,2010,65
+Kilifi,Sphyraena_sp,2011,1446.384
+Kilifi,Sphyraena_sp,2012,71
+Kilifi,Sphyraena_sp,2013,117
+Kilifi,Sphyraena_sp,2014,70
+Kilifi,Sphyraena_sp,2015,416
+Kilifi,Sphyraena_sp,2016,440.715
+Mombasa,Sphyraena_sp,2002,104.97
+Mombasa,Sphyraena_sp,2003,15.053
+Mombasa,Sphyraena_sp,2004,12.094
+Mombasa,Sphyraena_sp,2005,10.812
+Mombasa,Sphyraena_sp,2006,22.928
+Mombasa,Sphyraena_sp,2007,45.876
+Mombasa,Sphyraena_sp,2008,52.652
+Mombasa,Sphyraena_sp,2009,52.652
+Mombasa,Sphyraena_sp,2010,59
+Mombasa,Sphyraena_sp,2011,48.791
+Mombasa,Sphyraena_sp,2012,30
+Mombasa,Sphyraena_sp,2013,47
+Mombasa,Sphyraena_sp,2014,64
+Mombasa,Sphyraena_sp,2015,32
+Mombasa,Sphyraena_sp,2016,16.16
+Kwale,Sphyraena_sp,2002,30.237
+Kwale,Sphyraena_sp,2003,93.953
+Kwale,Sphyraena_sp,2004,74.022
+Kwale,Sphyraena_sp,2005,97.776
+Kwale,Sphyraena_sp,2006,157.788
+Kwale,Sphyraena_sp,2007,100.49
+Kwale,Sphyraena_sp,2008,159.362
+Kwale,Sphyraena_sp,2009,10.187
+Kwale,Sphyraena_sp,2010,94
+Kwale,Sphyraena_sp,2011,67.398
+Kwale,Sphyraena_sp,2012,74
+Kwale,Sphyraena_sp,2013,65
+Kwale,Sphyraena_sp,2014,101
+Kwale,Sphyraena_sp,2015,265
+Kwale,Sphyraena_sp,2016,207.771
+Lamu,Panulirus_sp,2002,57.02
+Lamu,Panulirus_sp,2003,78.884
+Lamu,Panulirus_sp,2004,59.82
+Lamu,Panulirus_sp,2005,44.537
+Lamu,Panulirus_sp,2006,41.785
+Lamu,Panulirus_sp,2007,44.953
+Lamu,Panulirus_sp,2008,62.837
+Lamu,Panulirus_sp,2009,36.741
+Lamu,Panulirus_sp,2010,36
+Lamu,Panulirus_sp,2011,45.113
+Lamu,Panulirus_sp,2012,32
+Lamu,Panulirus_sp,2013,60
+Lamu,Panulirus_sp,2014,39
+Lamu,Panulirus_sp,2015,157
+Lamu,Panulirus_sp,2016,286.242
+Tana river,Panulirus_sp,2002,9.23
+Tana river,Panulirus_sp,2003,44.139
+Tana river,Panulirus_sp,2004,51.995
+Tana river,Panulirus_sp,2005,6.737
+Tana river,Panulirus_sp,2006,0.444
+Tana river,Panulirus_sp,2007,6.208
+Tana river,Panulirus_sp,2008,5.879
+Tana river,Panulirus_sp,2009,3.283
+Tana river,Panulirus_sp,2010,8
+Tana river,Panulirus_sp,2011,4.5
+Tana river,Panulirus_sp,2012,7
+Tana river,Panulirus_sp,2013,6
+Tana river,Panulirus_sp,2014,8
+Tana river,Panulirus_sp,2015,0
+Tana river,Panulirus_sp,2016,0.592
+Kilifi,Panulirus_sp,2002,33.727
+Kilifi,Panulirus_sp,2003,22.737
+Kilifi,Panulirus_sp,2004,20.931
+Kilifi,Panulirus_sp,2005,24.564
+Kilifi,Panulirus_sp,2006,14.595
+Kilifi,Panulirus_sp,2007,15.816
+Kilifi,Panulirus_sp,2008,10.536
+Kilifi,Panulirus_sp,2009,0.456
+Kilifi,Panulirus_sp,2010,10
+Kilifi,Panulirus_sp,2011,12.237
+Kilifi,Panulirus_sp,2012,30
+Kilifi,Panulirus_sp,2013,16
+Kilifi,Panulirus_sp,2014,11
+Kilifi,Panulirus_sp,2015,70
+Kilifi,Panulirus_sp,2016,54.672
+Mombasa,Panulirus_sp,2002,2.041
+Mombasa,Panulirus_sp,2003,2.57
+Mombasa,Panulirus_sp,2004,4.338
+Mombasa,Panulirus_sp,2005,1.46
+Mombasa,Panulirus_sp,2006,2.958
+Mombasa,Panulirus_sp,2007,6.352
+Mombasa,Panulirus_sp,2008,8.208
+Mombasa,Panulirus_sp,2009,8.208
+Mombasa,Panulirus_sp,2010,13
+Mombasa,Panulirus_sp,2011,7.385
+Mombasa,Panulirus_sp,2012,2
+Mombasa,Panulirus_sp,2013,10
+Mombasa,Panulirus_sp,2014,14
+Mombasa,Panulirus_sp,2015,11
+Mombasa,Panulirus_sp,2016,4.174
+Kwale,Panulirus_sp,2002,17.218
+Kwale,Panulirus_sp,2003,21.092
+Kwale,Panulirus_sp,2004,19.776
+Kwale,Panulirus_sp,2005,15.757
+Kwale,Panulirus_sp,2006,19.554
+Kwale,Panulirus_sp,2007,19.766
+Kwale,Panulirus_sp,2008,26.315
+Kwale,Panulirus_sp,2009,2.21
+Kwale,Panulirus_sp,2010,33
+Kwale,Panulirus_sp,2011,23.826
+Kwale,Panulirus_sp,2012,25
+Kwale,Panulirus_sp,2013,32
+Kwale,Panulirus_sp,2014,35
+Kwale,Panulirus_sp,2015,26
+Kwale,Panulirus_sp,2016,44.222
+Lamu,Peneus_sp,2002,15.665
+Lamu,Peneus_sp,2003,12.974
+Lamu,Peneus_sp,2004,19.584
+Lamu,Peneus_sp,2005,18.935
+Lamu,Peneus_sp,2006,11.761
+Lamu,Peneus_sp,2007,11.929
+Lamu,Peneus_sp,2008,14.204
+Lamu,Peneus_sp,2009,11.546
+Lamu,Peneus_sp,2010,45
+Lamu,Peneus_sp,2011,13.975
+Lamu,Peneus_sp,2012,13
+Lamu,Peneus_sp,2013,19
+Lamu,Peneus_sp,2014,48
+Lamu,Peneus_sp,2015,4
+Lamu,Peneus_sp,2016,0.008
+Tana river,Peneus_sp,2002,28.276
+Tana river,Peneus_sp,2003,31.197
+Tana river,Peneus_sp,2004,32.168
+Tana river,Peneus_sp,2005,8.779
+Tana river,Peneus_sp,2006,21.101
+Tana river,Peneus_sp,2007,27.18
+Tana river,Peneus_sp,2008,18.574
+Tana river,Peneus_sp,2009,10.245
+Tana river,Peneus_sp,2010,40
+Tana river,Peneus_sp,2011,45.677
+Tana river,Peneus_sp,2012,120
+Tana river,Peneus_sp,2013,61
+Tana river,Peneus_sp,2014,43
+Tana river,Peneus_sp,2015,119
+Tana river,Peneus_sp,2016,174.533
+Kilifi,Peneus_sp,2002,40.811
+Kilifi,Peneus_sp,2003,30.202
+Kilifi,Peneus_sp,2004,39.189
+Kilifi,Peneus_sp,2005,39.919
+Kilifi,Peneus_sp,2006,50.859
+Kilifi,Peneus_sp,2007,68.962
+Kilifi,Peneus_sp,2008,37.683
+Kilifi,Peneus_sp,2009,0.545
+Kilifi,Peneus_sp,2010,25
+Kilifi,Peneus_sp,2011,33.047
+Kilifi,Peneus_sp,2012,75
+Kilifi,Peneus_sp,2013,44
+Kilifi,Peneus_sp,2014,26
+Kilifi,Peneus_sp,2015,6
+Kilifi,Peneus_sp,2016,8.7
+Mombasa,Peneus_sp,2002,476.376
+Mombasa,Peneus_sp,2003,292.46
+Mombasa,Peneus_sp,2004,46.075
+Mombasa,Peneus_sp,2005,68.401
+Mombasa,Peneus_sp,2006,84.996
+Mombasa,Peneus_sp,2007,171.333
+Mombasa,Peneus_sp,2008,83.364
+Mombasa,Peneus_sp,2009,83.364
+Mombasa,Peneus_sp,2010,119
+Mombasa,Peneus_sp,2011,156.454
+Mombasa,Peneus_sp,2012,174
+Mombasa,Peneus_sp,2013,208
+Mombasa,Peneus_sp,2014,128
+Mombasa,Peneus_sp,2015,15
+Mombasa,Peneus_sp,2016,19.895
+Kwale,Peneus_sp,2002,14.488
+Kwale,Peneus_sp,2003,16.8
+Kwale,Peneus_sp,2004,18.914
+Kwale,Peneus_sp,2005,21.431
+Kwale,Peneus_sp,2006,22.975
+Kwale,Peneus_sp,2007,33.952
+Kwale,Peneus_sp,2008,23.417
+Kwale,Peneus_sp,2009,2.503
+Kwale,Peneus_sp,2010,22
+Kwale,Peneus_sp,2011,25.798
+Kwale,Peneus_sp,2012,26
+Kwale,Peneus_sp,2013,34
+Kwale,Peneus_sp,2014,24
+Kwale,Peneus_sp,2015,0
+Kwale,Peneus_sp,2016,16.699
