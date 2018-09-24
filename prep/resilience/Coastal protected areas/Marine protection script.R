@@ -16,7 +16,7 @@ wgs_crs <- CRS("+init=epsg:32737 +proj=utm +zone=37 +south +datum=WGS84 +units=m
 ###############################################################################################################
 ##Import shapefiles MPA shapefie
 
-mpa_wio<-readOGR("D:/git/ken/prep/resilience/Marine protection/MPAs/WIO_M_PAs.shp")#note short file path fails
+mpa_wio<-readOGR("D:/git/ken/prep/resilience/Marine protection/MPAs/WIO_MPAs.shp")#note short file path fails
 
 plot(mpa_wio, col="cyan1", border="blue", lwd=0.5, main="WIO MPAs")#optional
 
@@ -33,7 +33,7 @@ plot(eez_rgn, col="transparent", border="green", lwd=0.1, main="WIO MPAs & 12nm 
 mpa_ohi_12nm<-raster::intersect(eez_rgn, mpa_wio)
 
 #view-optional
-plot(mpa_ohi_12nm, col = "red", border = "blue",add=TRUE)
+plot(mpa_ohi_12nm, col = "red", border = "blue")
 
 ###############################################################################################################
 
@@ -43,7 +43,7 @@ plot(mpa_ohi_12nm, col = "red", border = "blue",add=TRUE)
 ##Calculate area of protected areas and coastal regions,(interesected) and attach to polygons
 
 mpa_ohi_12nm@data$area_km2 <- gArea(mpa_ohi_12nm, byid = TRUE) / 1e6
-eez_rgn@area_km2 <- gArea(eez_rgn, byid = TRUE) / 1e6
+eez_rgn@data$area_km2 <- gArea(eez_rgn, byid = TRUE) / 1e6
 
 ### Summarize the total protected area within each region-Requres dplyr
 
@@ -52,7 +52,7 @@ library(dplyr)
 prot_area_df <- mpa_ohi_12nm@data %>%
   group_by(County_ID, rgn_name) %>%
   summarize(prot_area_km2 = sum(area_km2)) %>%
-  left_join(eez_rgn@data %>% 
+  left_join(eez_rgn@data %>%
               select(County_ID, tot_area_km2 = area_km2),
             by = 'County_ID') %>%
   mutate(prot_area_pct = round(prot_area_km2 / tot_area_km2, 3) * 100)
