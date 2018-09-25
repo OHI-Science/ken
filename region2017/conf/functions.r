@@ -30,30 +30,30 @@ FIS <- function(layers) {
   #   arrange(stock_id, year) %>%
   #   data.frame()
 
-  high_bmsy <- c(
-    'Katsuwonus_pelamis-71',
-    'Clupea_harengus-27',
-    'Trachurus_capensis-47',
-    'Sardinella_aurita-34',
-    'Scomberomorus_cavalla-31'
-  )
+  # high_bmsy <- c(
+  #   'Katsuwonus_pelamis-71',
+  #   'Clupea_harengus-27',
+  #   'Trachurus_capensis-47',
+  #   'Sardinella_aurita-34',
+  #   'Scomberomorus_cavalla-31'
+  # )
 
   b <- b %>%
-    mutate(bbmsy = ifelse(stock_id %in% high_bmsy &
-                            bbmsy > 1, 1, bbmsy))
+    mutate(bbmsy = ifelse(  bbmsy > 1, 1, bbmsy)) #adjusted bmsy value so that high bmsy values are capped at 1
 
 
+  #use the below code if stocks are not reported to species level
   # separate out the stock_id and taxonkey:
-  c <- c %>%
-    mutate(stock_id_taxonkey = as.character(stock_id_taxonkey)) %>%
-    mutate(taxon_key = stringr::str_sub(stock_id_taxonkey,-6,-1)) %>%
-    mutate(stock_id = substr(stock_id_taxonkey, 1, nchar(stock_id_taxonkey) -
-                               7)) %>%
-    mutate(catch = as.numeric(catch)) %>%
-    mutate(year = as.numeric(as.character(year))) %>%
-    mutate(region_id = as.numeric(as.character(region_id))) %>%
-    mutate(taxon_key = as.numeric(as.character(taxon_key))) %>%
-    select(region_id, year, stock_id, taxon_key, catch)
+  # c <- c %>%
+  #   mutate(stock_id_taxonkey = as.character(stock_id_taxonkey)) %>%
+  #   mutate(taxon_key = stringr::str_sub(stock_id_taxonkey,-6,-1)) %>%
+  #   mutate(stock_id = substr(stock_id_taxonkey, 1, nchar(stock_id_taxonkey) -
+  #                              7)) %>%
+  #   mutate(catch = as.numeric(catch)) %>%
+  #   mutate(year = as.numeric(as.character(year))) %>%
+  #   mutate(region_id = as.numeric(as.character(region_id))) %>%
+  #   mutate(taxon_key = as.numeric(as.character(taxon_key))) %>%
+  #   select(region_id, year, stock_id, taxon_key, catch)
 
   # general formatting:
   b <- b %>%
@@ -92,64 +92,67 @@ FIS <- function(layers) {
   ####
   # STEP 1. Merge the b/bmsy data with catch data
   ####
+  c$stock_id=c$stock_id_taxonkey
   data_fis <- c %>%
     left_join(b, by = c('region_id', 'stock_id', 'year')) %>%
-    select(region_id, stock_id, year, taxon_key, catch, bbmsy, score)
+    select(region_id, stock_id, year, catch, bbmsy, score)
 
-
+  status_data <- data_fis %>%
+    select(region_id, stock_id, year, catch, score)
   ###
   # STEP 2. Estimate scores for taxa without b/bmsy values
   # Median score of other fish in the region is the starting point
   # Then a penalty is applied based on the level the taxa are reported at
   ###
 
-  ## this takes the median score within each region and year
-  data_fis_gf <- data_fis %>%
-    group_by(region_id, year) %>%
-    mutate(Median_score = quantile(score, probs = c(0.5), na.rm = TRUE)) %>%
-    ungroup()
-
-  ## this takes the median score across all regions within a year(when no stocks have scores within a region)
-  data_fis_gf <- data_fis_gf %>%
-    group_by(year) %>%
-    mutate(Median_score_global = quantile(score, probs = c(0.5), na.rm =
-                                            TRUE)) %>%
-    ungroup() %>%
-    mutate(Median_score = ifelse(is.na(Median_score), Median_score_global, Median_score)) %>%
-    select(-Median_score_global)
-
-  #  *************NOTE *****************************
-  #  In some cases, it may make sense to alter the
-  #  penalty for not identifying fisheries catch data to
-  #  species level.
-  #  ***********************************************
-
-  penaltyTable <- data.frame(TaxonPenaltyCode = 1:6,
-                             penalty = c(0.1, 0.25, 0.5, 0.8, 0.9, 1))
-
-  data_fis_gf <- data_fis_gf %>%
-    mutate(TaxonPenaltyCode = as.numeric(substring(taxon_key, 1, 1))) %>%
-    left_join(penaltyTable, by = 'TaxonPenaltyCode') %>%
-    mutate(score_gf = Median_score * penalty) %>%
-    mutate(method = ifelse(is.na(score), "Median gapfilled", NA)) %>%
-    mutate(gapfilled = ifelse(is.na(score), 1, 0)) %>%
-    mutate(score = ifelse(is.na(score), score_gf, score))
-
-
-  gap_fill_data <- data_fis_gf %>%
-    select(region_id,
-           stock_id,
-           taxon_key,
-           year,
-           catch,
-           score,
-           gapfilled,
-           method) %>%
-    filter(year == scen_year)
-  write.csv(gap_fill_data, 'temp/FIS_summary_gf.csv', row.names = FALSE)
-
-  status_data <- data_fis_gf %>%
-    select(region_id, stock_id, year, catch, score)
+#   ## this takes the median score within each region and year
+#   data_fis_gf <- data_fis %>%
+#     group_by(region_id, year) %>%
+#     mutate(Median_score = quantile(score, probs = c(0.5), na.rm = TRUE)) %>%
+#     ungroup()
+#
+#   ## this takes the median score across all regions within a year(when no stocks have scores within a region)
+#   data_fis_gf <- data_fis_gf %>%
+#     group_by(year) %>%
+#     mutate(Median_score_global = quantile(score, probs = c(0.5), na.rm =
+#                                             TRUE)) %>%
+#     ungroup() %>%
+#     mutate(Median_score = ifelse(is.na(Median_score), Median_score_global, Median_score)) %>%
+#     select(-Median_score_global)
+#
+#   #  *************NOTE *****************************
+#   #  In some cases, it may make sense to alter the
+#   #  penalty for not identifying fisheries catch data to
+#   #  species level.
+#   #  ***********************************************
+#
+# #removed this section of code because catch data reported to species
+#   penaltyTable <- data.frame(TaxonPenaltyCode = 1:6,
+#                              penalty = c(0.1, 0.25, 0.5, 0.8, 0.9, 1))
+#
+#   data_fis_gf <- data_fis_gf %>%
+#     mutate(TaxonPenaltyCode = as.numeric(substring(taxon_key, 1, 1))) %>%
+#     left_join(penaltyTable, by = 'TaxonPenaltyCode') %>%
+#     mutate(score_gf = Median_score * penalty) %>%
+#     mutate(method = ifelse(is.na(score), "Median gapfilled", NA)) %>%
+#     mutate(gapfilled = ifelse(is.na(score), 1, 0)) %>%
+#     mutate(score = ifelse(is.na(score), score_gf, score))
+#
+#
+#   gap_fill_data <- data_fis_gf %>%
+#     select(region_id,
+#            stock_id,
+#            taxon_key,
+#            year,
+#            catch,
+#            score,
+#            gapfilled,
+#            method) %>%
+#     filter(year == scen_year)
+#   write.csv(gap_fill_data, 'temp/FIS_summary_gf.csv', row.names = FALSE)
+#
+#   status_data <- data_fis_gf %>%
+#     select(region_id, stock_id, year, catch, score)
 
 
   ###
