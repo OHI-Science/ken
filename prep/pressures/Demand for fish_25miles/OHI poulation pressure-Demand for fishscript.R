@@ -92,3 +92,27 @@ dir.create(file.path('D:/git/ken/prep/pressures/Population/','Extracted_regional
 
 
 write.csv(total_df,"D:/git/ken/prep/pressures/Population/Extracted_regional_value _csv/ohi_ken tot human pop 2015.csv",row.names = F)
+
+library(here)
+#steps:
+#assign the correct county (maybe under sector) to each site
+setwd(here::here('prep/pressures/Demand for fish_25miles/'))
+
+ke_rgn_pop_25miles<-read.csv("Extracted_regional_value _csv/ohi_ken tot human pop 2015.csv",header = T,stringsAsFactors = F)
+
+tot_pop_25mile<-sum(ke_rgn_pop_25miles$pop_count)
+
+#normalised pop
+ke_rgn_pop_25miles$pressure_score<-(ke_rgn_pop_25miles$pop_count/sum(ke_rgn_pop_25miles$pop_count))
+
+cal_status <- ke_rgn_pop_25miles[c(1,3,5)]
+
+cal_status<-cal_status[order(cal_status$rgn_id),]
+
+write.csv(cal_status,"Extracted_regional_value _csv/hd_intertidal_ke2018.csv",row.names = F)
+
+
+
+
+
+

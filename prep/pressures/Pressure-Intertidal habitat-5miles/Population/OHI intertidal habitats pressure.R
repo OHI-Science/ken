@@ -79,3 +79,27 @@ dir.create(file.path('D:/git/ken/prep/CS_CP_HAB/Pressure/Population/','Extracted
 
 
 write.csv(total_df,"D:/git/ken/prep/CS_CP_HAB/Pressure/Population/Extracted_regional_value _csv/2015_human_pop_county_at_5miles_buffer.csv",row.names = F)
+
+
+#Normalising the population
+
+library(here)
+#steps:
+#assign the correct county (maybe under sector) to each site
+setwd(here::here('prep/pressures/Pressure-Intertidal habitat-5miles/Population/'))
+
+ke_rgn_pop_5miles<-read.csv("Extracted_regional_value _csv/2015_human_pop_count_at_5miles_buffer.csv",header = T,stringsAsFactors = F)
+
+tot_pop_5mile<-sum(ke_rgn_pop_5miles$pop_count)
+
+#normalised pop
+ke_rgn_pop_5miles$pressure_score<-(ke_rgn_pop_5miles$pop_count/sum(ke_rgn_pop_5miles$pop_count))  #4336826
+
+cal_status <- ke_rgn_pop_5miles[c(1,3,5)]
+
+cal_status<-cal_status[order(cal_status$rgn_id),]
+
+write.csv(cal_status,"Extracted_regional_value _csv/hd_intertidal_tan2018.csv",row.names = F)
+
+
+
