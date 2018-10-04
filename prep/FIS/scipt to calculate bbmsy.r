@@ -2,12 +2,68 @@ library(here)
 setwd(here::here('prep/FIS/'))
 
 
-#script to calculate b/bmsy for each species and combine into single output layer file
+# calculate national catch per species per year ---------------------------
 
-nation<-read.csv(file ='fis_test.csv',header = T,stringsAsFactors = F)
+county_catch<-read.csv(file = "kenya_county_catch_per_year.csv",header = T, stringsAsFactors = F)
+
+county_catch$national_total<-rowSums(county_catch[, c(2:6)])
+
+#need to create a new raw file which can be used to calculate mean_catch
+library(tidyr)
+
+county_long <- gather(county_catch, region, catch, Lamu:Kwale)
+
+county_long$rgn_id[which(county_long$region=='Lamu')]<-'5'
+county_long$rgn_id[which(county_long$region=='Mombasa')]<-'1'
+county_long$rgn_id[which(county_long$region=='Kwale')]<-'2'
+county_long$rgn_id[which(county_long$region=='Kilifi')]<-'3'
+county_long$rgn_id[which(county_long$region=='Tana.river')]<-'4'
+
+county_long<-county_long[,c(6,1,2,5)]
+
+write.csv(county_long,'fis_catch_per_county_ken2018.csv',row.names = F)  #will be used to calculate mean_catch
+
+
+#read in this file, so we can update with latest catch and species- using exisiting bmsy and k values for each species
+nation_pre<-read.csv(file ='fis_test.csv',header = T,stringsAsFactors = F)
+
+
+# #add extra rows to be populated with new species data - will use global b_bmsy values for istiophurus
+# nation_pre[nrow(nation_pre)+15,] <- NA
+# nation_pre$Year[76:90] <- 2002:2016
+# nation_pre$species[76:90] <- 'Istiophurus_sp'
+# nation_pre$k[76:90] <- 'Istiophurus_sp'
+# nation_pre$bmsy[76:90] <- 'Istiophurus_sp'
+
+
+#need to replace the values in fis_test with the correct values from county_catch using merge/match
+#this step only needs to be done once to correct fis_test
+
+nation_pre$total <- county_catch$national_total[match(paste(nation_pre$Year,nation_pre$species), paste(county_catch$Year,county_catch$species))]
+
+#most values match, except for sphyranea 2011, and all rastrelliger
+
+
+nation_pre<-nation_pre[,c(1,6,3,4,5)]
+
+colnames(nation_pre)[2]<-'catch'
+
+write.csv(nation_pre,"fis_national_catch.csv",row.names = F)
+
+
+# calculate b_bmsy --------------------------------------------------------
+options(scipen = 999)   #makes r not use scientific number form
+
+
+nation<-read.csv(file ='fis_national_catch.csv',header = T,stringsAsFactors = F)
 
 nation$biomass<-NA
 nation$harvest_rate<-NA
+
+#remove 2015,2016 values to match global range of up to 2014
+
+nation<-nation[-which(nation$Year==2015|nation$Year==2016),]
+
 
 #step 1 - calculate virgin biomass, which is total catch / 2
 
@@ -62,9 +118,11 @@ nation4$bbmsy<-round(nation4$biomass/nation4$bmsy,2)
 #need to replicate nation 4, 5 times one for each region
 nation4<-nation4[rep(seq_len(nrow(nation4)), each=5),]
 
-nation4$rgn_id <- rep_len(1:5, length.out=75)
+nation4$rgn_id <- rep_len(1:5, length.out=nrow(nation4)/length(unique(nation4$species)))
 
 nation4<-nation4[order(nation4$rgn_id),]
+
+write.csv(nation4,"fish_catch_biomass_ken2018.csv",row.names = F)
 
 final<-nation4[,c(9,1,4,8)]
 
@@ -72,14 +130,21 @@ write.csv(final,'fis_b_bmsy_ken2018.csv',row.names = F)
 
 # calculate mean_catch per species per region ----------------------------------------
 
-catch=read.csv('fis_totalcatch_ken2018.csv',header = T,stringsAsFactors = F)
+catch=read.csv('fis_catch_per_county_ken2018.csv',header = T,stringsAsFactors = F)
+
+#remove 2015,2016 values to match global range of up to 2014
+
+catch<-catch[-which(catch$Year==2015|catch$Year==2016),]
 
 catch2<-catch %>%
-  group_by(rgn_id,stock_id_taxonkey)%>%
- mutate(ave_catch=mean(mean_catch))
+  group_by(rgn_id,species)%>%
+ mutate(mean_catch=mean(catch))
 
 catch3<-catch2[,c(1,3,2,5)]
 
-colnames(catch3)[4]<-'mean_catch'
+colnames(catch3)[3]<-'stock_id_taxonkey'
+
+catch3<-catch3[order(catch3$rgn_id),]
+
 
 write.csv(catch3,"fis_meancatch_ken2018.csv",row.names = F)
