@@ -38,12 +38,12 @@ catch<-read.csv("meancatch_ken2018.csv",header = T,stringsAsFactors = F)
 
 unique(catch$stock_id_taxonkey)
 
-catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Istiophurus_sp")]<-"Istiophorus_platypterus-51"
+catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Istiophurus_sp")]<-"Istiophorus_platypterus-51_600077" #taxon key no. is random
 catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Rastrelliger_kanarguta")]<-"Rastrelliger_kanagurta-51_600111"
 catch$stock_id_taxonkey[which(catch$stock_id_taxonkey== "Siganus_sutor" )]<-"Siganus-51_500240"
 catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Sphyraena_sp")]<-"Sphyraena-51_500372"
-catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Panulirus_sp")]<-"Panulirus-51"
-catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Peneius_indicus")]<-"Peneius_indicus-51"
+catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Panulirus_sp")]<-"Panulirus-51_490039"   #taxon key no. is random
+catch$stock_id_taxonkey[which(catch$stock_id_taxonkey=="Peneius_indicus")]<-"Peneius_indicus-51_590096" #taxon key no. is random
 
 
 catch_global<-read.csv("Filtered_mean_catch_OHI_global.csv",header = T,stringsAsFactors = F)
