@@ -5,10 +5,11 @@ biomass<-read.csv('b_bmsy_ken2018.csv',header = T,stringsAsFactors = F)
 
 unique(biomass$species)
 
-#biomass$species[which(biomass$species==)]<-"Istiophorus_platypterus-51"
-biomass$species[which(biomass$species=="Rastrelliger_kanarguta")]<-"Rastrelliger_kanagurta-51_600111"
-biomass$species[which(biomass$species== "Siganus_sutor" )]<-"Siganus-51_500240"
-biomass$species[which(biomass$species=="Sphyraena_sp")]<-"Sphyraena-51_500372"
+#named without taxon key to match how species in global biomass are named
+#biomass$species[which(biomass$species==)]<-"Istiophorus_platypterus-51_600077"
+biomass$species[which(biomass$species=="Rastrelliger_kanarguta")]<-"Rastrelliger_kanagurta-51"
+biomass$species[which(biomass$species== "Siganus_sutor" )]<-"Siganus-51"
+biomass$species[which(biomass$species=="Sphyraena_sp")]<-"Sphyraena-51"
 biomass$species[which(biomass$species=="Panulirus_sp")]<-"Panulirus-51"
 biomass$species[which(biomass$species=="Peneius_indicus")]<-"Peneius_indicus-51"
 
