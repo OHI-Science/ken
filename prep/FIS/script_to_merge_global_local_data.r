@@ -63,7 +63,7 @@ colnames(catch)<-colnames(catch_global)
 
 catch_global$mean_catch2<-catch$mean_catch[match(paste(catch_global$rgn_id,catch_global$stock_id_taxonkey,catch_global$year),paste(catch$rgn_id,catch$stock_id_taxonkey,catch$year))]
 
-catch_half<-catch[which(catch$stock_id_taxonkey=='Istiophorus_platypterus-51'|catch$stock_id_taxonkey=='Panulirus-51'|catch$stock_id_taxonkey=='Peneius_indicus-51'),]
+catch_half<-catch[which(catch$stock_id_taxonkey=='Istiophorus_platypterus-51_600077'|catch$stock_id_taxonkey=='Panulirus-51_490039'|catch$stock_id_taxonkey=='Peneius_indicus-51_590096'),]
 
 library(plyr)
 f<-rbind.fill(catch_global,catch_half)
