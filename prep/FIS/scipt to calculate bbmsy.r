@@ -124,9 +124,9 @@ nation4<-nation4[order(nation4$rgn_id),]
 
 write.csv(nation4,"fish_catch_biomass_ken2018.csv",row.names = F)
 
-final<-nation4[,c(9,1,4,8)]
+final<-nation4[,c(9,4,1,8)]
 
-write.csv(final,'fis_b_bmsy_ken2018.csv',row.names = F)
+write.csv(final,'b_bmsy_ken2018.csv',row.names = F)
 
 # calculate mean_catch per species per region ----------------------------------------
 
@@ -142,9 +142,9 @@ catch2<-catch %>%
 
 catch3<-catch2[,c(1,3,2,5)]
 
-colnames(catch3)[3]<-'stock_id_taxonkey'
+colnames(catch3)[2]<-'stock_id_taxonkey'
 
 catch3<-catch3[order(catch3$rgn_id),]
 
 
-write.csv(catch3,"fis_meancatch_ken2018.csv",row.names = F)
+write.csv(catch3,"meancatch_ken2018.csv",row.names = F)
