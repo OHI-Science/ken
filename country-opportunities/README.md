@@ -4,7 +4,7 @@ This folder contains information for Kenya from the OHI global assessments. [Vie
 
 In a few cases, data files are saved locally as `.csv` files for Kenya only because data for all regions are too big and are not kept on GitHub.
 
-- `explore-data.Rmd` extracts and displays OHI global information for Kenya by goal, and can be [viewed as an html here](https://rawgit.com/OHI-Science/ken/master/global_explore/explore-data.html)
+- `explore-data.Rmd` extracts and displays OHI global information for Kenya by goal, and can be [viewed as an html here](https://rawcdn.githack.com/OHI-Science/ken/master/country-opportunities/explore-data.html)
 - `stock_catch_by_rgn.csv` lists data by year included in the global assessments' fisheries sub-goal 
 - `fis_meancatch_lookup` lists the species included in the global assessments' fisheries sub-goal 
 - `rgn_spp_gl.csv` lists the species included in global assessments' species sub-goal 
