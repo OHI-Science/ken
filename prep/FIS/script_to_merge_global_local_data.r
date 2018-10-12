@@ -1,6 +1,13 @@
 library(here)
 setwd(here::here('prep/FIS/'))
 
+#this method was used when we were adding in locally calculcated b/bmsy for 5 species
+#however now we are not using this and the bbmsy values will be added during gap filling process when calculating scores
+
+
+# old bbmsy method --------------------------------------------------------
+
+
 biomass<-read.csv('b_bmsy_ken2018.csv',header = T,stringsAsFactors = F)
 
 unique(biomass$species)
@@ -32,6 +39,21 @@ final_biomass<-final_biomass[order(final_biomass$rgn_id),]
 
 write.csv(final_biomass,"fis_b_bmsy_ken2018.csv",row.names = F)
 
+
+# new bbmsy method --------------------------------------------------------
+
+#reading in filtered global dataset and making some minor formatting changes to it
+
+biomass_global<-read.csv("Filtered_b_bmsy_OHI_global.csv",header = T,stringsAsFactors = F)
+
+unique(biomass_global$stock_id)
+
+biomass_global<-biomass_global[-which(biomass_global$year==2001),]
+
+biomass_global<-biomass_global[order(biomass_global$rgn_id),]
+
+write.csv(biomass_global,"fis_b_bmsy_ken2018.csv",row.names = F)
+
 # mean_catch --------------------------------------------------------------
 #plan is to replace the values for bbmsy for each region, species, year in global mean_catch with local mean_catch
 
@@ -54,6 +76,11 @@ catch_global<-read.csv("Filtered_mean_catch_OHI_global.csv",header = T,stringsAs
 
 #match colnames
 colnames(catch)<-colnames(catch_global)
+
+# remove some taxa that are better represented by other species
+#Rastelliger and Sphrinidae - excluded as represented by Rastrelliger_kanagurta-51 and Sphyraena-51
+
+catch_global<-catch_global[-which(catch_global$stock_id_taxonkey=='Rastrelliger-51_505469'|catch_global$stock_id_taxonkey=='Sphyraenidae-51_400360'),]
 
 #for siganus, rastrelliger and sphyraena - catch data exists in global - match
 #for the other 3 it does not, so will need to append that to global - rbind
