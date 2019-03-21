@@ -8,7 +8,7 @@ output:
 
 ----
 
-The Ocean Health Index measures and tracks the benefits and services that the ocean provides for people now and into the future. This assessment was developed with the support of local stakeholders to better understand how to sustainably balance current and future ocean use. A report of the findings is available [here](https://github.com/OHI-Science/ken/blob/master/region2017/reports/Preliminary%20Ocean%20Health%20Index%20Kenya%20Assessment_Technical%20Report_2018.pdf).
+The Ocean Health Index measures and tracks the benefits and services that the ocean provides for people now and into the future. This assessment was developed with the support of local stakeholders to better understand how to sustainably balance current and future ocean use. A full report of the findings is available [here](https://github.com/OHI-Science/ken/blob/master/region2017/reports/Preliminary%20Ocean%20Health%20Index%20Kenya%20Assessment_Technical%20Report_2018.pdf) and a summary of the findings is available [[here](https://github.com/OHI-Science/ken/blob/master/region2017/reports/Kenya_OHI_Brief.pdf).
 
 
 <center><img src="images/school_fish_NOAA_David Burdick.jpg" width="700px"></center>  
