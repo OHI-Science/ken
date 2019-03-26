@@ -21,8 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -31,10 +31,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -206,7 +208,13 @@ $(document).ready(function () {
 
 <!--- please update--->
 <hr />
-<p><em>To be updated</em></p>
+<div id="david-obura" class="section level2">
+<h2>David Obura</h2>
+<div style="float: left">
+<img src="images/David.png" width="250px">
+</div>
+<p>David Obura is a Founding Director of CORDIO East Africa, a knowledge organization supporting sustainability of coral reef and marine systems in the Western Indian Ocean (WIO). David oversaw the OHI implementation by the CORDIO team, having engaged with OHI since its early formative days in 2009 and has been working to bring to East Africa in the last years to help promote integrated approaches to marine management. CORDIO takes research to management and policy, builds capacity, and works with stakeholders, managers and policy makers. David’s primary research is on coral reef resilience, in particular to climate change, and the biogeography of the Indian Ocean. David works to integrate conservation and development through inclusive blue economy principles and links provided by SDG goals and targets. In this, he hopes the OHI will provide tangible mechanisms for considering multiple targets and sectors together. <a href="mailto:dobura@cordioea.net">dobura@cordioea.net</a></p>
+</div>
 
 
 
